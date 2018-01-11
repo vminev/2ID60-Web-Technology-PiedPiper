@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chatroom</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+</head>
+
+<body>
+    <script>
+    var auth = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTE2MjgwNDYyLCJlbWFpbCI6IiJ9.cOwGCyw-PfIgHuc1vTkl5hsFbvpPMmw5czroD7KgdLM";
+
+    var socket = new WebSocket("ws://" + "127.0.0.1:8000" + "/chat?token=" + (!auth ? "" : auth));
+    console.log("ws://" + "127.0.0.1:8000" + "/chat?token=" + (!auth ? "" : auth))
+
+    socket.onmessage = function(e) {
+        console.log(e.data);
+    }
+
+    socket.onopen = function() {
+        socket.send("hello world");
+
+        setInterval(function() {
+            socket.send("writing...")
+        }, 1000)
+    }
+
+    if (socket.readyState == WebSocket.OPEN) socket.onopen();
+    </script>
+</body>
+
+</html>
