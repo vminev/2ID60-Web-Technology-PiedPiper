@@ -1,11 +1,11 @@
 from django.db import models
 
 # Create your models here.
-from userprofile.models import UserProfile
+from django.contrib.auth.models import User
 from django.db import models
 
 
 # Create your models here.
 class Connection(models.Model):
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     chatroom = models.ForeignKey('roomchat.RoomChat', on_delete=models.CASCADE)
