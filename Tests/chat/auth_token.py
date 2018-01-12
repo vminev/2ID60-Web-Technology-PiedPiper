@@ -56,7 +56,7 @@ def rest_auth(func):
                     user, auth = user_auth_tuple
                     break
         message.user, message.auth = user, auth
-        print(auth_token)
+
         # Make sure there's a session key
         # Run the consumer
         result = func(message, *args, **kwargs)

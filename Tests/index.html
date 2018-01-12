@@ -7,25 +7,39 @@
 </head>
 
 <body>
+    <input type="text" name="text" id="input" />
+    <button id="btn">Send</button>
+
     <script>
     var auth = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTE2MjgwNDYyLCJlbWFpbCI6IiJ9.cOwGCyw-PfIgHuc1vTkl5hsFbvpPMmw5czroD7KgdLM";
+    var activeUsers = [];
+    var connected = false;
 
-    var socket = new WebSocket("ws://" + "127.0.0.1:8000" + "/chat?token=" + (!auth ? "" : auth));
-    console.log("ws://" + "127.0.0.1:8000" + "/chat?token=" + (!auth ? "" : auth))
+    var socket = new WebSocket("ws://" + "127.0.0.1:8000" + "/chat/1?token=" + (!auth ? "" : auth));
 
     socket.onmessage = function(e) {
-        console.log(e.data);
+        data = JSON.parse(e.data);
+        switch (data.type) {
+            case 'message': console.log(data.user + ' says: ' + data.text); break;
+            case 'join': console.log(data.user + ' joined.'); activeUsers.push(data.user); break;
+            case 'leave': console.log(data.user + ' left.'); activeUsers.splice(activeUsers.indexOf(data.user), 1); break;
+        }
+
+        console.log(activeUsers);
     }
 
     socket.onopen = function() {
-        socket.send("hello world");
-
-        setInterval(function() {
-            socket.send("writing...")
-        }, 1000)
+        connected = true;
     }
 
     if (socket.readyState == WebSocket.OPEN) socket.onopen();
+
+    $('#btn').on('click', function() {
+        if (connected) {
+            socket.send($('#input').val());
+        }
+    });
+
     </script>
 </body>
 

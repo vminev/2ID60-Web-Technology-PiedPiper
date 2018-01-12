@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rooms',
-    'activity',
+#    'activity',
 
     'rest_framework',
     'corsheaders',

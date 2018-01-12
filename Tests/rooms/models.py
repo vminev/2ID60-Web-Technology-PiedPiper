@@ -8,7 +8,8 @@ class Room(models.Model):
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='own_rooms')
-    members = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='rooms')
+    members = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='member_rooms')
+    active_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='active_rooms', blank=True)
 
 
     class Meta:
