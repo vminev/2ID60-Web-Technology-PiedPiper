@@ -5,6 +5,9 @@ Tests/*/migrations
 # Database
 src/db.sqlite3
 
+# .idea
+chatroom/.idea
+
 # Visual Studio
 client/bin/
 client/obj/
