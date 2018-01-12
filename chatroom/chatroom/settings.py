@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'roomchat',
-    'userprofile'
+    'userprofile',
+    'connection',
+    'membership'
 ]
 
 MIDDLEWARE = [
