@@ -149,6 +149,6 @@ JWT_AUTH = {
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgiref.inmemory.ChannelLayer",
-        "ROUTING": "chat.routing.channel_routing",
+        "ROUTING": "chatroom.routing.channel_routing",
     },
 }
