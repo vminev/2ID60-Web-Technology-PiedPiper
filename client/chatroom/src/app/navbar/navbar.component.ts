@@ -12,6 +12,7 @@ export class NavbarComponent {
   test3: string;
   test4: string;
   test5: string;
+  test6: string;
 
   constructor(){
     this.test1 = 'DO';
@@ -19,5 +20,7 @@ export class NavbarComponent {
     this.test3 = 'FUCKING';
     this.test4 = 'WORK';
     this.test5 = 'MOTHAFUCKA';
+    this.test6 = 'MOTHAFUCKA2';
+
   }
 }
