@@ -7,20 +7,18 @@ import { Component } from '@angular/core'
 })
 
 export class NavbarComponent {
-  test1: string;
-  test2: string;
-  test3: string;
-  test4: string;
-  test5: string;
-  test6: string;
+  ourApp: string;
+  home: string;
+  myProfile: string;
+  login: string;
+  register: string ;
 
   constructor(){
-    this.test1 = 'DO';
-    this.test2 = 'I';
-    this.test3 = 'FUCKING';
-    this.test4 = 'WORK';
-    this.test5 = 'MOTHAFUCKA';
-    this.test6 = 'MOTHAFUCKA2';
+    this.ourApp = 'ChatGo';
+    this.home = 'Home';
+    this.myProfile = 'My Profile';
+    this.login = 'Log In';
+    this.register = 'Register';
 
   }
 }
