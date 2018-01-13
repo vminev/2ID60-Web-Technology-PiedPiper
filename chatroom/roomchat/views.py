@@ -1,9 +1,11 @@
 from django.shortcuts import render
 
 # Create your views here.
+from rest_framework.generics import CreateAPIView
+
 from roomchat.models import RoomChat, Message
 from rest_framework import generics
-from .serializers import RoomChatDetailSerializer, RoomChatSummarySerializer, MessageListSerializer
+from .serializers import RoomChatDetailSerializer, RoomChatSummarySerializer, MessageListSerializer, RoomChatCreateSerializer, MessageCreateSerializer
 
 
 class ChatRoomSummaryView(generics.ListAPIView):  # shows all the chat rooms on the main page
@@ -19,11 +21,21 @@ class ChatRoomDetailView(generics.RetrieveAPIView):
     queryset = RoomChat.objects.all()
 
 
+class ChatRoomCreateView(CreateAPIView):
+    queryset = RoomChat.all()
+    serializer_class = RoomChatCreateSerializer
+
+
 class MessageView(generics.ListAPIView):
     serializer_class = MessageListSerializer
 
     def get_queryset(self):
         return Message.objects.filter(roomchat=self.kwargs['roomchat_id'])
+
+
+class MessageCreateView(CreateAPIView):
+    queryset = Message.all()
+    seriazlier_class = MessageCreateSerializer
 
 
 

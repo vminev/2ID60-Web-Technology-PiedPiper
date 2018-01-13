@@ -17,7 +17,7 @@ class MessageListSerializer(serializers.ModelSerializer):
 
 
 class RoomChatDetailSerializer(serializers.ModelSerializer):
-    participants = UserMembershipSerializer
+    participants = UserProfileChatroomMembersSerializer
     messages = MessageListSerializer
 
     class Meta:
@@ -38,5 +38,27 @@ class RoomChatSummarySerializer(serializers.ModelSerializer):
             'title',
             'admin',
         )
+
+
+class RoomChatCreateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = RoomChat
+        fields = (
+            'title',
+            'admin',
+        )
+
+
+class MessageCreateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = RoomChat
+        fields = (
+            'creator',
+            'content',
+            'roomchat'
+        )
+
 
 

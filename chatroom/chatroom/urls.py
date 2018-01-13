@@ -18,4 +18,7 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^chatroom/', include('roomchat.urls')),
+    url(r'^profile/', include('userprofile.urls')),
 ]
+
