@@ -1,6 +1,4 @@
-from rest_framework import serializers
 from .models import RoomChat, Message
-from userprofile.serializers import *
 from membership.serializers import *
 
 
@@ -10,22 +8,20 @@ class MessageListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
         fields = (
-            'creator',
             'content',
+            'creator',
             'date_posted'
         )
 
 
 class RoomChatDetailSerializer(serializers.ModelSerializer):
-    participants = MembershipSerializer
-    messages = MessageListSerializer
+    subscribed_participants = MembershipSerializer
 
     class Meta:
         model = RoomChat
         fields = (
             'title',
-            'participants',
-            'messages'
+            'subscribed_participants'
         )
 
 

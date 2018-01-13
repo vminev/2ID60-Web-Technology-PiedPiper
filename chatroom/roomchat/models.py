@@ -18,6 +18,10 @@ class RoomChat(models.Model):
     def subscribed_participants(self):
         return Membership.objects.filter(chatroom=self)
 
+    @property
+    def messages(self):
+        return Message.objects.filter(chatroom=self)
+
     def __str__(self):
         return self.title
 
