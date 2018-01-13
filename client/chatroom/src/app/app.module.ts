@@ -31,7 +31,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     ModalProfileOthersComponent,
     ModalProfilePersonalComponent,
     ModalRegisterComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule

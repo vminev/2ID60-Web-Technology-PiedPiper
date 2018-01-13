@@ -1,12 +1,12 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-messageBubblePersonal',
-  templateUrl: '../viewsHTML/messageBubblePersonal/messageBubblePersonal.component.html',
-  styleUrls: ['../viewsCSS/messageBubblePersonal/messageBubblePersonal.component.css']
+  selector: 'app-message-bubble-personal',
+  templateUrl: './message-bubble-personal.component.html',
+  styleUrls: ['./message-bubble-personal.component.css']
 })
 
-export class MessageBubblePersonal {
+export class MessageBubblePersonalComponent {
 
   constructor(){
 

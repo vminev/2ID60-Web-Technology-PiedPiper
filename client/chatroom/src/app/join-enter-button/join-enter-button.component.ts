@@ -2,13 +2,13 @@ import { Component } from '@angular/core'
 
 @Component(
   {
-    selector: 'app-button',
-    templateUrl: '../viewsHTML/joinEnterButton/joinEnterButton.component.html',
-    styleUrls: ['../viewsCSS/joinEnterButton/joinEnterButton.component.css']
+    selector: 'app-join-enter-button',
+    templateUrl: './join-enter-button.component.html',
+    styleUrls: ['./join-enter-button.component.css']
   }
 )
 
-export class PushDownButton {
+export class JoinEnterButtonComponent {
   title: string;
   text: string;
 

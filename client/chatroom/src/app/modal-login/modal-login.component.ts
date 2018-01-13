@@ -1,12 +1,12 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-modalLogin',
-  templateUrl: '../viewsHTML/modalLogin/modalLogin.component.html',
-  styleUrls: ['../viewsCSS/modalLogin/modalLogin.component.css']
+  selector: 'app-modal-login',
+  templateUrl: './modal-login.component.html',
+  styleUrls: ['./modal-login.component.css']
 })
 
-export class ModalLogin {
+export class ModalLoginComponent {
 
   constructor(){
 

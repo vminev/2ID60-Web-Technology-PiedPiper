@@ -1,12 +1,12 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-chatRoom',
-  templateUrl: '../viewsHTML/chatRoom/chatRoom.component.html',
-  styleUrls: ['../viewsCSS/chatRoom/chatRoom.component.css']
+  selector: 'app-chat-room',
+  templateUrl: './chat-room.component.html',
+  styleUrls: ['./chat-room.component.css']
 })
 
-export class ChatRoom {
+export class ChatRoomComponent {
 
 
   constructor(){

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-modalProfileOthers',
-  templateUrl: '../viewsHTML/modalProfileOthers/modalProfileOthers.component.html',
-  styleUrls: ['../viewsCSS/modalProfileOthers/modalProfileOthers.component.css']
+  selector: 'app-modal-profile-others',
+  templateUrl: './modal-profile-others.component.html',
+  styleUrls: ['./modal-profile-others.component.css']
 })
 
-export class ModalProfileOthers {
+export class ModalProfileOthersComponent {
 
   constructor(){
 
