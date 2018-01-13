@@ -22,7 +22,7 @@ class ChatRoomDetailView(generics.RetrieveAPIView):
 
 
 class ChatRoomCreateView(CreateAPIView):
-    queryset = RoomChat.all()
+    queryset = RoomChat.objects.all()
     serializer_class = RoomChatCreateSerializer
 
 
@@ -34,8 +34,8 @@ class MessageView(generics.ListAPIView):
 
 
 class MessageCreateView(CreateAPIView):
-    queryset = Message.all()
-    seriazlier_class = MessageCreateSerializer
+    queryset = Message.objects.all()
+    serializer_class = MessageCreateSerializer
 
 
 

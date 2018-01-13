@@ -3,7 +3,7 @@ from .models import Membership
 from userprofile.serializers import *
 
 
-class MessageListSerializer(serializers.ModelSerializer):
+class MembershipSerializer(serializers.ModelSerializer):
     user = UserProfileChatroomMembersSerializer
 
     class Meta:

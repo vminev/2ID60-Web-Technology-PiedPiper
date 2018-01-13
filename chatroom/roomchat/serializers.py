@@ -17,7 +17,7 @@ class MessageListSerializer(serializers.ModelSerializer):
 
 
 class RoomChatDetailSerializer(serializers.ModelSerializer):
-    participants = UserProfileChatroomMembersSerializer
+    participants = MembershipSerializer
     messages = MessageListSerializer
 
     class Meta:
@@ -53,7 +53,7 @@ class RoomChatCreateSerializer(serializers.ModelSerializer):
 class MessageCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = RoomChat
+        model = Message
         fields = (
             'creator',
             'content',
