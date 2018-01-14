@@ -15,6 +15,7 @@ import { ModalProfileOthersComponent } from './modal-profile-others/modal-profil
 import { ModalProfilePersonalComponent } from './modal-profile-personal/modal-profile-personal.component';
 import { ModalRegisterComponent } from './modal-register/modal-register.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ModalCreateChatroomComponent } from './modal-create-chatroom/modal-create-chatroom.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     ModalProfileOthersComponent,
     ModalProfilePersonalComponent,
     ModalRegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ModalCreateChatroomComponent
   ],
   imports: [
     BrowserModule

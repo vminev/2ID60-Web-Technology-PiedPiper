@@ -11,7 +11,8 @@ export class NavbarComponent {
   home: string;
   myProfile: string;
   login: string;
-  register: string ;
+  register: string;
+  create: string;
 
   constructor(){
     this.ourApp = 'ChatGo';
@@ -19,6 +20,6 @@ export class NavbarComponent {
     this.myProfile = 'My Profile';
     this.login = 'Log In';
     this.register = 'Register';
-
+    this.create = 'Create room';
   }
 }
