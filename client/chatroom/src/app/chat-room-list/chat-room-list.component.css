@@ -11,8 +11,8 @@
 }
 
 .chatRoomTitle{
-  padding-top: 17px;
-  width:50%;
+  padding-top: 11px;
+  width: 50%;
   float: left;
   padding-left: 3%;
 }
@@ -25,11 +25,11 @@
 }
 
 .singleChatRoom {
-  display: table-cell;
+  display: table;
   border: #303030 solid 1px;
   height: 60px;
-  width: auto;
-  border-radius: 4px;
+  width: 100%;
+  border-radius: 5px;
   text-align: left;
   background-color: steelblue;
 }

@@ -9,19 +9,19 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">My Profile</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body row">
           <div class = "container col-md-12" style="padding-top: 30px">
             <div class = "col-lg-6">
               <div class="containerProfileImage">
                 <img class="profileImage" id="profileImageModal"
                      src="https://static.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg"
                      style="width: 100px; height: 100px;"/>
-                <button id="saveProfileImage" type="file" class="btn btn-default">
-                  <span class="glyphicon glyphicon-edit"></span>Edit
-                </button>
+                <input id="saveProfileImage" type="file" class="inputfile" name="file"/>
+                <label for="saveProfileImage">Choose file</label>
               </div>
-              <input id="saveProfileImage" type="file" class="inputfile" name="file"/>
+
             </div>
+
             <div class = "col-lg-6">
               <h5 style='font-family: "Helvetica Neue", Helvetica, Arial, sans-serif'>Name: Gosho</h5>
               <div class="form-group">
