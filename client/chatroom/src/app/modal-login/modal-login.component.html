@@ -13,10 +13,10 @@
                 <div class="modal-body">
                     <form id="login-form">
                         <h4>Username</h4>
-                        <input id="username" name="username" type="text" />
+                        <input #usernameLogin id="username" name="username" type="text" />
                         <h4>Password</h4>
-                        <input id="password" name="password" type="password" />
-                        <input class='cool-button' type='submit' value='Log In' (click)='login()'/>
+                        <input #passwordLogin id="password" name="password" type="password" />
+                        <input class='cool-button' type='submit' value='Log In' (click)='login(usernameLogin.value, passwordLogin.value)'/>
                     </form>
                 </div>
                 <div class="modal-footer">

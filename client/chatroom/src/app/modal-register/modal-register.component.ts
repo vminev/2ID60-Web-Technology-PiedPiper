@@ -12,7 +12,14 @@ export class ModalRegisterComponent {
 
   }
 
-  register() {
+  register(username, password) {
+    //send data to services for register
+    //if necessary call login
+    this.changeNavbar(username)
+  }
 
+  changeNavbar(username) {
+    //change login button to username
+    //change register button to logout
   }
 }

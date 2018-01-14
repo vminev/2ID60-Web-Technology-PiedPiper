@@ -12,7 +12,13 @@ export class ModalLoginComponent {
 
   }
 
-  login(){
+  login(username, password){
+    //send values to server to login login
+    this.changeNavbar(username)
+  }
 
+  changeNavbar(username){
+    //change login button to username
+    //change register button to logout
   }
 }

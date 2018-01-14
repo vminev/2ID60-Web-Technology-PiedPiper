@@ -7,20 +7,25 @@ import { Component } from '@angular/core'
 })
 
 export class ModalProfilePersonalComponent {
-    public profilePic;
+    public profilePic: any;
     public userName: string;
     public age: string;
-    public description: string;
+    public descrip: string;
     public gender: string;
 
-    constructor(userName){
+    constructor(){
+
+    }
+
+    ngOnInit(userName){
       this.userName = userName;
     }
 
-    ngOnChange(profilePic, age, gender, description) {
+    ngOnChange(profilePic, age, gender, descrip) {
+
       this.profilePic = profilePic;
       this.age= age;
       this.gender = gender;
-      this.description = description;
+      this.descrip = descrip;
     }
 }
