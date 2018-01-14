@@ -115,6 +115,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Rest Framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ),
+    'DEFAULT_METADATA_CLASS': 'rest_framework.metadata.SimpleMetadata'
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
