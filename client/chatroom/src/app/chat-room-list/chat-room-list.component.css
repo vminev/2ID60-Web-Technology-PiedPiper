@@ -1,0 +1,36 @@
+.chatRoomParticipants {
+  height: 100%;
+  width: 100%;
+  position: center;
+}
+
+.listWithChatRooms{
+  table-layout: fixed;
+  width: 100%;
+  display: table;
+}
+
+.chatRoomTitle{
+  padding-top: 17px;
+  width:50%;
+  float: left;
+  padding-left: 3%;
+}
+
+.chatRoomButton{
+  width: 50%;
+  float: right;
+  padding-top: 16px;
+  padding-right: 3%;
+}
+
+.singleChatRoom {
+  display: table-cell;
+  border: #303030 solid 1px;
+  height: 60px;
+  width: auto;
+  border-radius: 4px;
+  text-align: left;
+  background-color: steelblue;
+}
+
