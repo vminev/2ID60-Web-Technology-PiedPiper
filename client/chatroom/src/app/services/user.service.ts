@@ -10,7 +10,9 @@ import {CookieService} from 'ngx-cookie-service';
 export class UserService {
   private profileUrl = `${settings.apiUrl}/profile`;
 
-  constructor(private http: HttpClient, private cookieService: CookieService) {
+  constructor(private http: HttpClient,
+              private cookieService: CookieService,
+              private headers: HttpHeaders) {
   }
 
   login(user: User): Observable<string> {
@@ -19,9 +21,19 @@ export class UserService {
 
   setToken(token: string): void {
     this.cookieService.set('auth', token);
+    this.headers.append('Authorization', 'JWT ' + token);
+
   }
 
   getToken(): Observable<string> {
     return of(this.cookieService.get('auth'));
+  }
+
+  isLoggedIn(): Observable<boolean> {
+    return of(this.cookieService.check('auth'));
+  }
+
+  logout(): void {
+    this.cookieService.delete('auth');
   }
 }
