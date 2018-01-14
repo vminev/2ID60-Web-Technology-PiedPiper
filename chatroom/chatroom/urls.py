@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url, include
+from rest_framework_jwt.views import obtain_jwt_token
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^user/login', obtain_jwt_token),
     url(r'^chatroom/', include('roomchat.urls')),
     url(r'^profile/', include('userprofile.urls')),
 ]
