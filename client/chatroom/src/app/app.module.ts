@@ -21,10 +21,7 @@ import {MembershipService} from "./services/membership.service";
 import {MessageService} from "./services/message.service";
 import {UserService} from './services/user.service';
 import {AppRoutingModule} from './/app-routing.module';
-import {ModalCreateChatroomComponent} from './modal-create-chatroom/modal-create-chatroom.component';
-import { ModalCreateChatroomComponent } from './modal-create-chatroom/modal-create-chatroom.component';
-import { AppRoutingModule } from './/app-routing.module';
-
+import {ModalCreateChatroomComponent} from './modal-create-chatroom/modal-create-chatroom.component';;
 
 @NgModule({
   declarations: [
