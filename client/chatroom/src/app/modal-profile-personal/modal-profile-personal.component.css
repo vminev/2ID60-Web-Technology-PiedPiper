@@ -1,6 +1,6 @@
 .inputfile {
-  width: 0.1px;
-  height: 0.1px;
+  width: 20px;
+  height: 10px;
   opacity: 0;
   overflow: hidden;
   position: absolute;
@@ -8,18 +8,24 @@
 }
 
 .inputfile + label {
-  font-size: 1.25em;
+  font-size: 19px;
   font-weight: 700;
-  color: white;
-  background-color: black;
+  color: black;
+  background-color: white;
   display: inline-block;
+  border: #2e2e2e solid 1px;
+  border-radius: 3px;
 }
 
 .inputfile:focus + label,
 .inputfile + label:hover {
-  background-color: red;
+  background-color: grey;
 }
 
 .inputfile + label {
   cursor: pointer; /* "hand" cursor */
+}
+
+.modal-body {
+
 }
