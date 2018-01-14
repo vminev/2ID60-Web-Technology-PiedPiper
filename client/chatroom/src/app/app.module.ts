@@ -23,6 +23,7 @@ import {UserService} from './services/user.service';
 import {AppRoutingModule} from './/app-routing.module';
 import {ModalCreateChatroomComponent} from './modal-create-chatroom/modal-create-chatroom.component';
 import { CookieService } from 'ngx-cookie-service';
+import { LeaveButtonComponent } from './leave-button/leave-button.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CookieService } from 'ngx-cookie-service';
     ModalProfilePersonalComponent,
     ModalRegisterComponent,
     NavbarComponent,
-    ModalCreateChatroomComponent
+    ModalCreateChatroomComponent,
+    LeaveButtonComponent
   ],
   imports: [
     BrowserModule,
