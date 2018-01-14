@@ -4,7 +4,7 @@ from django.db import models
 
 # Create your models here.
 class UserProfile(models.Model):
-    user_name = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     family_name = models.CharField(max_length=50)
     description = models.CharField(max_length=200, default='No description.')
