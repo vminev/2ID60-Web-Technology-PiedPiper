@@ -1,9 +1,11 @@
 from .models import RoomChat, Message
-from membership.serializers import *
+from rest_framework import serializers
+from membership.serializers import MembershipSerializer
+from userprofile.serializers import UserProfileMessageCreatorSerializer, AdminSerializer
 
 
 class MessageListSerializer(serializers.ModelSerializer):
-    creator = UserProfileMessageCreatorSerializer
+    creator = UserProfileMessageCreatorSerializer(read_only=True)
 
     class Meta:
         model = Message
@@ -26,7 +28,7 @@ class RoomChatDetailSerializer(serializers.ModelSerializer):
 
 
 class RoomChatSummarySerializer(serializers.ModelSerializer):
-    admin = AdminSerializer
+    admin = AdminSerializer(read_only=True)
 
     class Meta:
         model = RoomChat
