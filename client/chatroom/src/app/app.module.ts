@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {HttpClientModule} from '@angular/common/http';
 
-<<<<<<< HEAD
 import {AppComponent} from './app.component';
 import {ChatRoomComponent} from './chat-room/chat-room.component';
 import {ChatRoomChatBoxComponent} from './chat-room-chat-box/chat-room-chat-box.component';
@@ -21,7 +20,6 @@ import {ChatroomService} from "./services/chatroom.service";
 import {MembershipService} from "./services/membership.service";
 import {MessageService} from "./services/message.service";
 import {UserService} from './services/user.service';
-=======
 import { AppComponent } from './app.component';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
 import { ChatRoomChatBoxComponent } from './chat-room-chat-box/chat-room-chat-box.component';
@@ -37,7 +35,6 @@ import { ModalRegisterComponent } from './modal-register/modal-register.componen
 import { NavbarComponent } from './navbar/navbar.component';
 import { ModalCreateChatroomComponent } from './modal-create-chatroom/modal-create-chatroom.component';
 import { AppRoutingModule } from './/app-routing.module';
->>>>>>> e8fbae7ecc27ba225979a91a17ef6849ba05a5bd
 
 
 @NgModule({
@@ -59,17 +56,14 @@ import { AppRoutingModule } from './/app-routing.module';
   ],
   imports: [
     BrowserModule,
-<<<<<<< HEAD
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     ChatroomService,
     MembershipService,
     MessageService,
     UserService
-=======
-    AppRoutingModule
->>>>>>> e8fbae7ecc27ba225979a91a17ef6849ba05a5bd
   ],
   bootstrap: [AppComponent]
 })
