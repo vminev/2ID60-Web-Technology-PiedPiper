@@ -12,7 +12,7 @@ class ChatRoomSummaryView(generics.ListAPIView):  # shows all the chat rooms on 
     serializer_class = RoomChatSummarySerializer
 
     def get_queryset(self):
-        return RoomChat.objects
+        return RoomChat.objects.all()
 
 
 class ChatRoomDetailView(generics.RetrieveAPIView):

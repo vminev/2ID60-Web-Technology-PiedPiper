@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core'
+import {MessageService} from '../services/message.service';
+import {Message} from "../models/message";
 
 @Component({
   selector: 'app-chat-room',
@@ -10,7 +12,13 @@ export class ChatRoomComponent {
   profileImage: string;
   profileName: string;
   inChat: boolean;
+  messages: Message;
 
-  constructor() {
+  constructor(private messageService: MessageService) {
+  }
+
+  ngOnInit() {
+    this.messageService.getMessages(1)
+      .subscribe(messages => this.messages = messages, error => console.log(error), () => console.log(this.messages));
   }
 }

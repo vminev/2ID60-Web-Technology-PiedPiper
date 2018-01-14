@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {HttpClientModule} from '@angular/common/http';
 
+<<<<<<< HEAD
 import {AppComponent} from './app.component';
 import {ChatRoomComponent} from './chat-room/chat-room.component';
 import {ChatRoomChatBoxComponent} from './chat-room-chat-box/chat-room-chat-box.component';
@@ -20,6 +21,23 @@ import {ChatroomService} from "./services/chatroom.service";
 import {MembershipService} from "./services/membership.service";
 import {MessageService} from "./services/message.service";
 import {UserService} from './services/user.service';
+=======
+import { AppComponent } from './app.component';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
+import { ChatRoomChatBoxComponent } from './chat-room-chat-box/chat-room-chat-box.component';
+import { ChatRoomListComponent } from './chat-room-list/chat-room-list.component';
+import { ChatRoomParticipantsComponent } from './chat-room-participants/chat-room-participants.component';
+import { JoinEnterButtonComponent } from './join-enter-button/join-enter-button.component';
+import { MessageBubbleOthersComponent } from './message-bubble-others/message-bubble-others.component';
+import { MessageBubblePersonalComponent } from './message-bubble-personal/message-bubble-personal.component';
+import { ModalLoginComponent } from './modal-login/modal-login.component';
+import { ModalProfileOthersComponent } from './modal-profile-others/modal-profile-others.component';
+import { ModalProfilePersonalComponent } from './modal-profile-personal/modal-profile-personal.component';
+import { ModalRegisterComponent } from './modal-register/modal-register.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ModalCreateChatroomComponent } from './modal-create-chatroom/modal-create-chatroom.component';
+import { AppRoutingModule } from './/app-routing.module';
+>>>>>>> e8fbae7ecc27ba225979a91a17ef6849ba05a5bd
 
 
 @NgModule({
@@ -36,10 +54,12 @@ import {UserService} from './services/user.service';
     ModalProfileOthersComponent,
     ModalProfilePersonalComponent,
     ModalRegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ModalCreateChatroomComponent
   ],
   imports: [
     BrowserModule,
+<<<<<<< HEAD
     HttpClientModule
   ],
   providers: [
@@ -47,6 +67,9 @@ import {UserService} from './services/user.service';
     MembershipService,
     MessageService,
     UserService
+=======
+    AppRoutingModule
+>>>>>>> e8fbae7ecc27ba225979a91a17ef6849ba05a5bd
   ],
   bootstrap: [AppComponent]
 })
