@@ -1,4 +1,6 @@
-import { Component } from '@angular/core'
+import {Component, Input, Output, EventEmitter} from '@angular/core'
+import {UserService} from '../services/user.service'
+import {User} from '../models/user'
 
 @Component({
   selector: 'app-modal-login',
@@ -7,18 +9,22 @@ import { Component } from '@angular/core'
 })
 
 export class ModalLoginComponent {
+  @Input()
+  user: string = '';
 
-  constructor(){
+  @Output()
+  change: EventEmitter<string> = new EventEmitter<string>();
+
+
+  constructor(private userService: UserService) {
 
   }
 
-  login(username, password){
-    //send values to server to login login
-    this.changeNavbar(username)
-  }
-
-  changeNavbar(username){
-    //change login button to username
-    //change register button to logout
+  login(username, password) {
+    this.userService.login(new User(username, password))
+      .subscribe(
+        token => this.userService.setToken(token),
+        error => console.log(error),
+        () => this.change.emit(username));
   }
 }

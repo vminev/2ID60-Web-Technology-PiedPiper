@@ -22,8 +22,8 @@ import {MessageService} from "./services/message.service";
 import {UserService} from './services/user.service';
 import {AppRoutingModule} from './/app-routing.module';
 import {ModalCreateChatroomComponent} from './modal-create-chatroom/modal-create-chatroom.component';
-import { CookieService } from 'ngx-cookie-service';
-import { LeaveButtonComponent } from './leave-button/leave-button.component';
+import {CookieService} from 'ngx-cookie-service';
+import {LeaveButtonComponent} from './leave-button/leave-button.component';
 
 @NgModule({
   declarations: [

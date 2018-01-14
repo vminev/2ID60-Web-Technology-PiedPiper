@@ -1,9 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-navbar></app-navbar>
+<app-navbar [user]="user" (change)="userChange($event)"></app-navbar>
 <div class="separator"><router-outlet></router-outlet></div>
 
-<app-modal-login></app-modal-login>
-<app-modal-register></app-modal-register>
+<app-modal-login [user]="user" (change)="userChange($event)"></app-modal-login>
+<app-modal-register [user]="user" (change)="userChange($event)"></app-modal-register>
 <app-modal-profile-others></app-modal-profile-others>
 <app-modal-profile-personal></app-modal-profile-personal>
 <app-modal-create-chatroom></app-modal-create-chatroom>
