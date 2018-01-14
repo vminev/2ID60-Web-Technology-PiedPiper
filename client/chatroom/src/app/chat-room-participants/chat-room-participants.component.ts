@@ -7,8 +7,25 @@ import { Component } from '@angular/core'
 })
 
 export class ChatRoomParticipantsComponent {
+  profileImage: string;
+  profileName: string;
+  inChat: boolean;
 
   constructor(){
+
+  }
+
+  ngOnInit(profileImage, profileName, inChat){
+    this.profileImage = profileImage;
+    this.profileName = profileName;
+    this.inChat = inChat;
+  }
+
+  ngOnChanges() {
+
+  }
+
+  leaveChat(){
 
   }
 }

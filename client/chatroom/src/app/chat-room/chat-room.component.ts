@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import {Component, OnInit} from '@angular/core'
 
 @Component({
   selector: 'app-chat-room',
@@ -7,8 +7,10 @@ import { Component } from '@angular/core'
 })
 
 export class ChatRoomComponent {
+  profileImage: string;
+  profileName: string;
+  inChat: boolean;
 
-
-  constructor(){
+  constructor() {
   }
 }
