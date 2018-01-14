@@ -24,6 +24,8 @@ import {AppRoutingModule} from './/app-routing.module';
 import {ModalCreateChatroomComponent} from './modal-create-chatroom/modal-create-chatroom.component';
 import {CookieService} from 'ngx-cookie-service';
 import {LeaveButtonComponent} from './leave-button/leave-button.component';
+import { NavbarUserLoggedInComponent } from './navbar-user-logged-in/navbar-user-logged-in.component';
+import { NavbarUserAnnonymousComponent } from './navbar-user-annonymous/navbar-user-annonymous.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {LeaveButtonComponent} from './leave-button/leave-button.component';
     ModalRegisterComponent,
     NavbarComponent,
     ModalCreateChatroomComponent,
-    LeaveButtonComponent
+    LeaveButtonComponent,
+    NavbarUserLoggedInComponent,
+    NavbarUserAnnonymousComponent
   ],
   imports: [
     BrowserModule,

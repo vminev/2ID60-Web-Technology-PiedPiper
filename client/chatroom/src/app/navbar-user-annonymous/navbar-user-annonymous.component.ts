@@ -1,12 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core'
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-navbar-user-annonymous',
+  templateUrl: './navbar-user-annonymous.component.html',
+  styleUrls: ['./navbar-user-annonymous.component.css']
 })
-
-export class NavbarComponent {
+export class NavbarUserAnnonymousComponent implements OnInit {
   ourApp: string;
   home: string;
   myProfile: string;
@@ -32,4 +31,8 @@ export class NavbarComponent {
   userChange(event) {
     this.change.emit(event);
   }
+
+  ngOnInit() {
+  }
+
 }

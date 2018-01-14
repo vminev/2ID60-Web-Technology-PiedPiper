@@ -9,10 +9,10 @@ import {CookieService} from 'ngx-cookie-service';
 @Injectable()
 export class UserService {
   private profileUrl = `${settings.apiUrl}/profile`;
+  private headers = new HttpHeaders();
 
   constructor(private http: HttpClient,
-              private cookieService: CookieService,
-              private headers: HttpHeaders) {
+              private cookieService: CookieService) {
   }
 
   login(user: User): Observable<string> {
@@ -22,7 +22,6 @@ export class UserService {
   setToken(token: string): void {
     this.cookieService.set('auth', token);
     this.headers.append('Authorization', 'JWT ' + token);
-
   }
 
   getToken(): Observable<string> {
