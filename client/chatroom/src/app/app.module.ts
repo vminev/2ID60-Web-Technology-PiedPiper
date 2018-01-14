@@ -21,7 +21,8 @@ import {MembershipService} from "./services/membership.service";
 import {MessageService} from "./services/message.service";
 import {UserService} from './services/user.service';
 import {AppRoutingModule} from './/app-routing.module';
-import {ModalCreateChatroomComponent} from './modal-create-chatroom/modal-create-chatroom.component';;
+import {ModalCreateChatroomComponent} from './modal-create-chatroom/modal-create-chatroom.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {ModalCreateChatroomComponent} from './modal-create-chatroom/modal-create
     ChatroomService,
     MembershipService,
     MessageService,
-    UserService
+    UserService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
