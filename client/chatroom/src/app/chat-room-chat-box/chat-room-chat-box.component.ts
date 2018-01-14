@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {HttpErrorResponse} from "@angular/common/http";
 // import {DataService} from "../data.service";
-import {CommonConstants} from "../util/common-constants";
+// import {CommonConstants} from "../util/common-constants";
 
 @Component({
   selector: 'app-chat-room-chat-box',

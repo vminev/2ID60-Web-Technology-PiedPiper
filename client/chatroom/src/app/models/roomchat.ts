@@ -1,5 +1,5 @@
-import {User} from 'user.ts';
-import {Message} from "./message";
+import {User} from './user';
+import {Message} from './message';
 
 export class RoomChat {
   title: string;
