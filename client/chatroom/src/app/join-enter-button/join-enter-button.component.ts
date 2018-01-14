@@ -16,4 +16,12 @@ export class JoinEnterButtonComponent {
     this.title = 'Do I work';
     this.text = 'Click Me'
   }
+
+  joinOrEnter(text){
+    if(text === "Join"){
+      //call function to join chat in array for participants and then enter by alco calling the route for chat-room
+    } else {
+      //call function to enter the chat room and route to show it
+    }
+  }
 }
