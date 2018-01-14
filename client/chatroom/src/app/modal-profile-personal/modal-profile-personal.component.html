@@ -1,60 +1,65 @@
-<!--modalProfilePersonal modal-->
 <div class="container">
-    <!-- Modal -->
-    <div class="modal fade" id="modalProfilePersonal" role="dialog">
-        <div class="modal-dialog">
+  <!-- Modal -->
+  <div class="modal fade" id="modalProfilePersonal" role="dialog">
+    <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">My Profile</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="containerProfileImage">
-                        <img class="profileImage" id="profileImageModal"
-                             src="https://static.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg"
-                             style="width: 100px; height: 100px;"/>
-                        <input id="saveProfileImage" type="file" class="inputfile" name="file"/>
-                      <label for="saveProfileImage">`Choose a file</label>
-
-
-
-                    </div>
-
-                    <dl id="modalProfilePersonal-details">
-                        <dt>Name</dt>
-                        <dd>My user Name</dd>
-                        <dt>Age</dt>
-                        <dd>
-                            <textarea name="age" type="text">Display Age Here</textarea>
-                        </dd>
-                        <dt>Gender</dt>
-                        <dd>
-                            <select name="genders">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-
-                        <dt>Desciption</dt>
-                        <dd>
-                            <form action="#">
-                                <textarea name="message"
-                                          style="width:200px; height:300px;">Display Description here.</textarea>
-                            </form>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="modal-footer">
-                    <button id="saveChanges" type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-save"></span>Save
-                    </button>
-                    <button id="close-modalProfilePersonal" type="button" class="btn btn-default" data-dismiss="modal">
-                        Close
-                    </button>
-                </div>
-            </div>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">My Profile</h4>
         </div>
+        <div class="modal-body">
+          <div class = "container col-md-12" style="padding-top: 30px">
+            <div class = "col-lg-6">
+              <div class="containerProfileImage">
+                <img class="profileImage" id="profileImageModal"
+                     src="https://static.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg"
+                     style="width: 100px; height: 100px;"/>
+                <button id="saveProfileImage" type="file" class="btn btn-default">
+                  <span class="glyphicon glyphicon-edit"></span>Edit
+                </button>
+              </div>
+              <input id="saveProfileImage" type="file" class="inputfile" name="file"/>
+            </div>
+            <div class = "col-lg-6">
+              <h5 style='font-family: "Helvetica Neue", Helvetica, Arial, sans-serif'>Name: Gosho</h5>
+              <div class="form-group">
+                <label for="selectGender">Gender:</label>
+                <select class="form-control" id="selectGender">
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class = "container col-md-12">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" rows="5" id="description"></textarea>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="selectAge">Age:</label>
+                <select class="form-control" id="selectAge">
+                  <option>1</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="saveChanges" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-save"></span>Save
+          </button>
+          <button id="close-modalProfilePersonal" type="button" class="btn btn-default" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 <!--End of profileModalPersonal modal-->
