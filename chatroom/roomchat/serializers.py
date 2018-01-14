@@ -17,7 +17,7 @@ class MessageListSerializer(serializers.ModelSerializer):
 
 
 class RoomChatDetailSerializer(serializers.ModelSerializer):
-    subscribed_participants = MembershipSerializer
+    subscribed_participants = MembershipSerializer()
 
     class Meta:
         model = RoomChat

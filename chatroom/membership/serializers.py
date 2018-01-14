@@ -4,7 +4,7 @@ from userprofile.serializers import *
 
 
 class MembershipSerializer(serializers.ModelSerializer):
-    user = UserProfileChatroomMembersSerializer
+    user = UserProfileChatroomMembersSerializer()
 
     class Meta:
         model = Membership
