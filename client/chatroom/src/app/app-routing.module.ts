@@ -5,9 +5,10 @@ import { ChatRoomComponent } from "./chat-room/chat-room.component";
 import {ChatRoomListComponent} from "./chat-room-list/chat-room-list.component";
 
 const routes: Routes = [
-  { path: '/chat/:id', component: ChatRoomComponent },
+  { path: 'chat/:id', component: ChatRoomComponent },
   { path: '', redirectTo: '/chatRoomsList', pathMatch: 'full' },
-  { path: '/chatRoomsList', component: ChatRoomListComponent}
+  { path: 'chatRoomsList', component: ChatRoomListComponent },
+  { path: 'chat', component: ChatRoomComponent }
 ];
 
 @NgModule({
