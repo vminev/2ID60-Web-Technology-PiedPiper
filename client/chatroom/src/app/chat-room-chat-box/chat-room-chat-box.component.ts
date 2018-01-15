@@ -42,7 +42,7 @@ export class ChatRoomChatBoxComponent implements OnInit {
                 let data = JSON.parse(e.data);
                 switch (data.type) {
                   case 'message':
-                    let message = new Message(data.content, data.date_posted, new UserProfile(data.first_name, data.family_name));
+                    let message = new Message(data.content, data.date_posted, new UserProfile(data.first_name, data.family_name, data.profile_photo));
                     messages.push(message);
                     break;
                   case 'join':

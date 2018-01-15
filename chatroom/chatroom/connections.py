@@ -52,7 +52,13 @@ def ws_message(message, room_id):
 
         Group("room-" + room_id).send({
             "text": json.dumps(
-                {'type': 'message', 'first_name':  profile.first_name, 'family_name':  profile.family_name, 'content': message.content['text'], 'date_posted': str(datetime.datetime.now())}),
+                {'type': 'message',
+                 'first_name':  profile.first_name,
+                 'family_name':  profile.family_name,
+                 'content': message.content['text'],
+                 'date_posted': str(datetime.datetime.now()),
+                 'profile_photo': profile.profile_photo}
+            ),
         })
 
 
