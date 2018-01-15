@@ -10,8 +10,8 @@
       <a class="navbar-brand" routerLink="/chat">Test</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <app-navbar-user-annonymous *ngIf="!user" [user]="user" (change)="userChange($event)"></app-navbar-user-annonymous>
-      <app-navbar-user-logged-in *ngIf="user" [user]="user" (change)="userChange($event)"></app-navbar-user-logged-in>
+      <app-navbar-user-annonymous *ngIf="!user"></app-navbar-user-annonymous>
+      <app-navbar-user-logged-in *ngIf="user" [user]="user" (userChange)="userChanged($event)"></app-navbar-user-logged-in>
     </div>
   </div>
 </nav>

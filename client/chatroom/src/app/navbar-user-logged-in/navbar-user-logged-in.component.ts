@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-navbar-user-logged-in',
   templateUrl: './navbar-user-logged-in.component.html',
   styleUrls: ['./navbar-user-logged-in.component.css']
 })
-export class NavbarUserLoggedInComponent implements OnInit {
+export class NavbarUserLoggedInComponent {
   ourApp: string;
   home: string;
   myProfile: string;
@@ -17,9 +18,9 @@ export class NavbarUserLoggedInComponent implements OnInit {
   user: string = null;
 
   @Output()
-  change: EventEmitter<string> = new EventEmitter<string>();
+  userChange: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(){
+  constructor(private userService: UserService){
     this.ourApp = 'ChatGo';
     this.home = 'Home';
     this.myProfile = 'My Profile';
@@ -28,11 +29,13 @@ export class NavbarUserLoggedInComponent implements OnInit {
     this.create = 'Create room';
   }
 
-  userChange(event) {
-    this.change.emit(event);
+  userChanged(event) {
+    this.userChange.emit(event);
   }
 
-  ngOnInit() {
+  logout() {
+    this.userService.logout();
+    this.userChanged(null);
   }
 
 }
