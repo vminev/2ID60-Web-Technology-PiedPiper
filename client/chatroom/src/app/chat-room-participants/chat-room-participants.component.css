@@ -92,6 +92,26 @@ img {
   height: 0;
 }
 
-@media screen {
-  
+#hideParticipants {
+  display: none;
 }
+
+#people-list{
+  display: block;
+}
+
+
+@media screen and (width: 1100px)
+{
+  #people-list
+  {
+    display: none;
+  }
+
+  #hideParticipants {
+    display: block;
+  }
+
+}
+
+

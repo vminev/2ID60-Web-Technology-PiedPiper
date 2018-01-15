@@ -19,16 +19,6 @@ input {
   border-radius: 0;
 }
 
-
-@media screen and (max-width: 767px) {
-  .profile-name {
-    color: white;
-    font-size: 28px;
-    display: table;
-    margin: 0 auto;
-  }
-}
-
 #uploadNewPostButton {
   max-width: 100px;
 }
@@ -136,3 +126,4 @@ input {
   color: white;
   font-size: 28px;
 }
+
