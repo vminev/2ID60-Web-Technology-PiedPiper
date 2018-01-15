@@ -8,6 +8,7 @@ import {CookieService} from 'ngx-cookie-service';
 import {Login} from "../models/login";
 import {HeaderService} from "./header.service";
 import {Router} from "@angular/router";
+import {UserProfile} from "../models/userprofile";
 
 @Injectable()
 export class UserService {
@@ -49,5 +50,15 @@ export class UserService {
   getIdentity(): Observable<User> {
     let headers = this.headerService.getHeaders();
     return this.http.get<User>(this.profileUrl + '/identity', {headers: headers});
+  }
+
+  getProfile(user_id): Observable<UserProfile> {
+    let headers = this.headerService.getHeaders();
+    return this.http.get<UserProfile>(this.profileUrl + '/' + user_id, {headers: headers});
+  }
+
+  updateProfile(user_id, profile: UserProfile): Observable<Object> {
+    let headers = this.headerService.getHeaders();
+    return this.http.put(this.profileUrl + '/' + user_id + '/update', profile, {headers: headers});
   }
 }

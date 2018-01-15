@@ -1,20 +1,23 @@
 <div class="panel panel-primary chat-box">
   <div class="panel-heading">
     <div class="clearfix"><span class="glyphicon glyphicon-comment"></span> Chat
-
-    <app-join-enter-button></app-join-enter-button></div>
-
+      <app-leave-button></app-leave-button>
+    </div>
   </div>
   <div class="panel-body">
     <ul class="chat" *ngIf="messages">
 
       <li *ngFor="let message of messages" class="left clearfix"><span class="chat-img pull-left">
-                            <img src="{{message.creator.profile_photo ? message.creator.profile_photo : 'http://placehold.it/50/55C1E7/fff&text=U'}}" style="max-width: 50px;" alt="User Avatar" class="img-circle"/>
+                            <img
+                              src="{{message.creator.profile_photo ? message.creator.profile_photo : 'http://placehold.it/50/55C1E7/fff&text=U'}}"
+                              style="max-width: 50px;" alt="User Avatar" class="img-circle"/>
                         </span>
         <div class="chat-body clearfix">
           <div class="header">
-            <strong class="primary-font" *ngIf="!!message.creator.first_name || !!message.creator.family_name">{{message.creator.first_name}} {{message.creator.family_name}}</strong>
-            <strong class="primary-font" *ngIf="!message.creator.first_name && !message.creator.family_name">Unknown</strong>
+            <strong class="primary-font" *ngIf="!!message.creator.first_name || !!message.creator.family_name">{{message.creator.first_name}}
+              {{message.creator.family_name}}</strong>
+            <strong class="primary-font"
+                    *ngIf="!message.creator.first_name && !message.creator.family_name">Unknown</strong>
             <small class="pull-right text-muted">
               <span class="glyphicon glyphicon-time"></span>{{message.date_posted | date:'medium'}}
             </small>
@@ -28,7 +31,8 @@
   </div>
   <div class="panel-footer">
     <div class="input-group">
-      <input id="btn-input" [(ngModel)]="content" type="text" class="form-control input-sm" placeholder="Type your message here..."/>
+      <input id="btn-input" [(ngModel)]="content" type="text" class="form-control input-sm"
+             placeholder="Type your message here..."/>
       <span class="input-group-btn">
         <button class="btn btn-success btn-sm button" id="btn-chat" type="button" (click)="submitText()">Send</button>
       </span>

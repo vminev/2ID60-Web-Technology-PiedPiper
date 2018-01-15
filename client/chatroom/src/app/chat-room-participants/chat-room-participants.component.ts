@@ -13,11 +13,5 @@ export class ChatRoomParticipantsComponent {
   @Input()
   roomchat: RoomChat;
 
-  constructor(private chatroomService: ChatroomService, private route: ActivatedRoute){}
-
-  leaveChat(){
-
-  }
-
-
+  constructor(){}
 }

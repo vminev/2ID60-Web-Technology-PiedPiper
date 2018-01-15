@@ -149,8 +149,27 @@ class UserProfileCreateSerializer(serializers.ModelSerializer):
 
 
 class UserIdentitySerializer(serializers.ModelSerializer):
+    id = serializers.SerializerMethodField()
+
     class Meta:
         model = UserModel
         fields = (
+            'id',
             'username',
+        )
+
+    def get_id(self, obj):
+        return obj.profile.id
+
+
+class UserProfileUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = (
+            'first_name',
+            'family_name',
+            'description',
+            'profile_photo',
+            'gender',
+            'age'
         )

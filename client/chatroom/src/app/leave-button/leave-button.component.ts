@@ -1,23 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {MembershipService} from "../services/membership.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-leave-button',
   templateUrl: './leave-button.component.html',
   styleUrls: ['./leave-button.component.css']
 })
-export class LeaveButtonComponent implements OnInit {
-  text: string;
+export class LeaveButtonComponent {
+  constructor(private membershipService: MembershipService, private route: ActivatedRoute, private router: Router){}
 
-  constructor(){
-    this.text = 'Leave'
-  }
+  leave() {
+    this.route.params.subscribe(params => {
+      let room_id = +params['id'];
 
-  leaveChat() {
-    //remove user from participants in current chat. Hence set join-enter button text to join
-  }
-
-  ngOnInit() {
-
+      this.membershipService.deleteMemembership(room_id)
+        .subscribe(
+          () => this.router.navigate(['/']),
+          error => console.log(error)
+        );
+    });
   }
 
 }

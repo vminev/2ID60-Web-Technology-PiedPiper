@@ -18,6 +18,11 @@ export class MembershipService {
 
   createMembership(membership: Membership): Observable<Object> {
     let headers = this.headerService.getHeaders();
-    return this.http.post<Membership[]>(this.membershipUrl + '/create', membership, {headers: headers});
+    return this.http.post<Object>(this.membershipUrl + '/create', membership, {headers: headers});
+  }
+
+  deleteMemembership(room_id: number): Observable<Object> {
+    let headers = this.headerService.getHeaders();
+    return this.http.delete<Object>(this.membershipUrl + '/' + room_id + '/delete', {headers: headers});
   }
 }

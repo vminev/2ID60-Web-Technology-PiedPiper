@@ -1,4 +1,4 @@
-from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 from .models import Membership
 from userprofile.serializers import *
 
@@ -19,6 +19,27 @@ class MembershipSerializer(serializers.ModelSerializer):
 
 
 class MembershipCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Membership
+        fields = (
+            'chatroom',
+            'user'
+        )
+
+    def create(self, validated_data):
+        if Membership.objects.filter(chatroom_id=validated_data['chatroom']).count() > 10:
+            raise ValidationError('The rooms is full.');
+
+        chatroom = validated_data['chatroom']
+        user = validated_data['user']
+
+        membership = Membership(chatroom=chatroom, user=user)
+        membership.save()
+
+        return validated_data
+
+
+class MembershipDeleteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Membership
         fields = (

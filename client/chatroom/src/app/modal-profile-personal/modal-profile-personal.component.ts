@@ -1,4 +1,6 @@
 import { Component } from '@angular/core'
+import {UserProfile} from "../models/userprofile";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-modal-profile-personal',
@@ -7,25 +9,33 @@ import { Component } from '@angular/core'
 })
 
 export class ModalProfilePersonalComponent {
-    public profilePic: any;
-    public userName: string;
-    public age: string;
-    public descrip: string;
-    public gender: string;
+    private profile: UserProfile;
+    private userId: number;
 
-    constructor(){
+    constructor(private userService: UserService){
 
     }
 
-    ngOnInit(userName){
-      this.userName = userName;
+    ngOnInit(){
+      this.userService.getIdentity()
+        .subscribe(
+          identity => {
+            let id = identity.id;
+            this.userId = id;
+
+            this.userService.getProfile(id)
+              .subscribe(
+                profile => this.profile = profile
+              )
+          },
+          error => console.log(error)
+        );
     }
 
-    ngOnChange(profilePic, age, gender, descrip) {
+    save() {
+      this.userService.updateProfile(this.userId, this.profile)
+        .subscribe(
 
-      this.profilePic = profilePic;
-      this.age= age;
-      this.gender = gender;
-      this.descrip = descrip;
+        )
     }
 }

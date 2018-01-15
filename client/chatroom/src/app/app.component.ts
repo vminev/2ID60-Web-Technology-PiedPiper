@@ -20,7 +20,9 @@ export class AppComponent {
           if (isLoggedIn) {
             this.userService.getIdentity()
               .subscribe(
-                identity => this.user = identity.username,
+                identity => {
+                  this.user = identity.username;
+                },
                 error => {
                   console.log(error);
                   this.user = null
