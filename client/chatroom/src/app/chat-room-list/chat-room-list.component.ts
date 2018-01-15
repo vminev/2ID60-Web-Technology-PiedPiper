@@ -1,4 +1,6 @@
-import { Component } from '@angular/core'
+import {Component} from '@angular/core'
+import {RoomChat} from "../models/roomchat";
+import {ChatroomService} from "../services/chatroom.service";
 
 @Component({
   selector: 'app-chat-room-list',
@@ -7,8 +9,16 @@ import { Component } from '@angular/core'
 })
 
 export class ChatRoomListComponent {
+  chatrooms: RoomChat[];
 
-  constructor(){
+  constructor(private chatroomService: ChatroomService) {
 
   }
+
+  ngOnInit() {
+    this.chatroomService.getAll()
+      .subscribe(chatrooms => {
+        this.chatrooms = chatrooms
+      })
+  };
 }

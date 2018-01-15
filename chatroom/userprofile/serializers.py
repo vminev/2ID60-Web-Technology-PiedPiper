@@ -51,6 +51,7 @@ class UserProfileMessageCreatorSerializer(serializers.ModelSerializer):
         model = UserProfile
         fields = (
             'first_name',
+            'family_name',
             'profile_photo'
         )
 

@@ -21,9 +21,4 @@ export class ChatRoomComponent {
     private messageService: MessageService,
     private userService: UserService) {
   }
-
-  ngOnInit() {
-    this.messageService.getMessages(1)
-      .subscribe(messages => this.messages = messages, error => console.log(error), () => console.log(this.messages));
-  }
 }
