@@ -1,16 +1,16 @@
 <div class="chatRoomParticipants">
   <ul class="listWithChatRooms">
     <li class="singleChatRoom">
-      <div class="container col-lg-12">
+      <div class="container col-lg-12" *ngFor="let chatroom of chatrooms">
         <div class="col-lg-4">
           <div class="chatRoomTitle">
-            <h4>chatRoom <span class="badge badge-default badge-pill">14</span> /
+            <h4>{{chatroom.title}} <span class="badge badge-default badge-pill">14</span> /
               <span class="badge badge-default badge-pill">14</span></h4>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="chatRoomCreator">
-            <p>Hello</p>
+            <p>{{chatroom.admin.first_name}} {{chatroom.admin.family_name}}</p>
           </div>
         </div>
         <div class="col-lg-4">

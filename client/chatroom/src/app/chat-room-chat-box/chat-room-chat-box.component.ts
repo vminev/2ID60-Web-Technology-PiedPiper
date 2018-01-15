@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {HttpErrorResponse} from "@angular/common/http";
+import {MessageService} from "../services/message.service";
+import {Message} from "../models/message";
 // import {DataService} from "../data.service";
 // import {CommonConstants} from "../util/common-constants";
 
@@ -9,14 +11,20 @@ import {HttpErrorResponse} from "@angular/common/http";
   templateUrl: './chat-room-chat-box.component.html',
   styleUrls: ['./chat-room-chat-box.component.css']
 })
-export class ChatRoomChatBoxComponent  implements OnInit {
-  @Input() result: any;
+export class ChatRoomChatBoxComponent implements OnInit {
   id: number;
+  messages: Message[];
+  date = Date;
 
-  // constructor(private dataService: DataService, private route: ActivatedRoute) {
-  // }
+  constructor(private messageService: MessageService, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      let room_id = +params['id'];
+      this.messageService.getMessages(room_id)
+        .subscribe(messages => {this.messages = messages})
+    });
     // this.route.params.subscribe(params => {
     //   this.id = params['id'];
     // });
