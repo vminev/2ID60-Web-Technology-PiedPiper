@@ -8,13 +8,14 @@
 }
 
 .inputfile + label {
-  font-size: 19px;
+  font-size: 14px;
+  padding: 5px 25px;
   font-weight: 700;
   color: black;
   background-color: white;
   display: inline-block;
-  border: #2e2e2e solid 1px;
-  border-radius: 3px;
+  border: #2e2e2e 1px;
+  border-radius: 10px;
 }
 
 .inputfile:focus + label,
