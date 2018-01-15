@@ -18,3 +18,15 @@
   padding-top: 10px;
 }
 
+.grid {
+  margin-right: 15px;
+  margin-left: 15px;
+  padding-top: 5px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.match{
+  width: 100%;
+}
+
