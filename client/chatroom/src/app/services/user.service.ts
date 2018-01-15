@@ -20,6 +20,10 @@ export class UserService {
     return this.http.post<Login>(this.profileUrl + '/login', user);
   }
 
+  register(user: User): Observable<Object> {
+    return this.http.post<Object>(this.profileUrl + '/register', user);
+  }
+
   setToken(token: string): void {
     this.cookieService.set('auth', token);
     this.headers.append('Authorization', 'JWT ' + token);

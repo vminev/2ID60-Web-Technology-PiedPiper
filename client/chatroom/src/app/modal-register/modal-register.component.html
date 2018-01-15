@@ -13,11 +13,10 @@
                 <div class="modal-body">
                     <form id="register-form">
                         <h4>Username</h4>
-                        <input class="register" id="usernameReg" name="username" type="text"/>
+                        <input #usernameRegister class="register" id="usernameReg" name="username" type="text"/>
                         <h4>Password</h4>
                         <input #passwordRegister id="passwordReg" name="password" type="password"/>
-                        <input class='cool-button button btn-info' value='Register' (click)="register(usernameRegister.value, passwordRegister.value)"/>
-                        <button type="button" class='cool-button button btn-primary' type="submit" value='Register' (click)="register(usernameRegister.value, passwordRegister.value)">Register</button>
+                        <button type="button" class='cool-button button btn-primary' value='Register' (click)="register(usernameRegister.value, passwordRegister.value)">Register</button>
                     </form>
                 </div>
                 <div class="modal-footer">

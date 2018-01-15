@@ -1,4 +1,6 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core'
+import {UserService} from "../services/user.service";
+import {User} from "../models/user";
 
 @Component({
   selector: 'app-modal-register',
@@ -13,18 +15,18 @@ export class ModalRegisterComponent {
   @Output()
   userChange: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() {
-
-  }
+  constructor(private userService: UserService) {}
 
   register(username, password) {
-    //send data to services for register
-    //if necessary call login
-    this.changeNavbar(username)
-  }
-
-  changeNavbar(username) {
-    //change login button to username
-    //change register button to logout
+    this.userService.register(new User(username, password))
+      .subscribe(
+        response => this.userService.login(new User(username, password))
+          .subscribe(
+            data => this.userService.setToken(data.token),
+            error => console.log(error),
+            () => this.userChange.emit(username)),
+        error => console.log(error),
+        () => {this.userChange.emit(username); $('#modalRegister').trigger('click')}
+      );
   }
 }
