@@ -85,11 +85,19 @@ class UserProfileCreateSerializer(serializers.ModelSerializer):
         )
 
     def validate(self, data):
+        first_name = ''
+        family_name = ''
+
+        if 'family_name' in data:
+            family_name = data['family_name']
+        if 'first_name' in data:
+            first_name = data['first_name']
+
         user_obj = {
             'username': data['username'],
             'password': data['password'],
-            'first_name': data['first_name'],
-            'last_name': data['family_name']
+            'first_name': first_name,
+            'last_name': family_name
         }
         serialized_user = UserSerializer(data=user_obj, many=False)
 
@@ -100,17 +108,25 @@ class UserProfileCreateSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         username = validated_data['username']
         password = validated_data['password']
-        first_name = validated_data['first_name']
-        family_name = validated_data['family_name']
-        gender = validated_data['gender']
-        age = validated_data['age']
         profile_photo = ''
         description = ''
+        first_name = ''
+        family_name = ''
+        gender = ''
+        age = 0
 
         if 'profile_photo' in validated_data:
             profile_photo = validated_data['profile_photo']
         if 'description' in validated_data:
             description = validated_data['description']
+        if 'family_name' in validated_data:
+            family_name = validated_data['family_name']
+        if 'first_name' in validated_data:
+            first_name = validated_data['first_name']
+        if 'gender' in validated_data:
+            gender = validated_data['gender']
+        if 'age' in validated_data:
+            age = validated_data['age']
 
         user_obj = UserModel(username=username, first_name=first_name, last_name=family_name)
         user_obj.set_password(password)

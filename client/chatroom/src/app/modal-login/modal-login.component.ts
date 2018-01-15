@@ -16,9 +16,7 @@ export class ModalLoginComponent {
   @Output()
   userChange: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private userService: UserService) {
-
-  }
+  constructor(private userService: UserService) {}
 
   login(username, password) {
     this.userService.login(new User(username, password))
