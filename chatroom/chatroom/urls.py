@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^chatroom/', include('roomchat.urls')),
     url(r'^profile/', include('userprofile.urls')),
+    url(r'^membership/', include('membership.urls')),
 ]
 
