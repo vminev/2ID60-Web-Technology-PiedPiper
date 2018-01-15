@@ -21,6 +21,5 @@ class UserIdentityAPIView(generics.RetrieveAPIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
-        print(request.user)
         serializer = UserIdentitySerializer(request.user)
         return Response(serializer.data)
