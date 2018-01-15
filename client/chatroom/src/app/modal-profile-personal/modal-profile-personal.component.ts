@@ -35,7 +35,10 @@ export class ModalProfilePersonalComponent {
     save() {
       this.userService.updateProfile(this.userId, this.profile)
         .subscribe(
-
+          () => {
+            window.location.reload();
+          },
+          error => console.log(error)
         )
     }
 }
