@@ -1,33 +1,97 @@
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 90%;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-}
-
-.title {
-  color: grey;
-  font-size: 18px;
-}
-
-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
+.container {
+  margin: 0 auto;
   width: 100%;
-  font-size: 13px;
+  background: white;
+  border-radius: 5px;
 }
 
-button:hover, a:hover {
-  opacity: 0.7;
+.people-list {
+  width: 300px;
+}
+.people-list .search {
+  padding: 20px;
 }
 
-.img-circle{
-  max-width: 70%;
+.people-list .fa-search {
+  position: relative;
+  left: -25px;
+}
+
+.people-list ul {
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.people-list ul li {
+  list-style: none;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.people-list img {
+  float: left;
+}
+
+.people-list .about {
+  float: left;
+  margin-top: 8px;
+}
+
+.people-list .about {
+  padding-left: 8px;
+}
+
+.people-list .status {
+  color: gray;
+}
+
+.circle {
+  width: 6px;
+  height: 6px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.statusText{
+  display: inline-block;
+}
+
+.red {
+  background: red;
+}
+
+.green {
+  background: lime;
+}
+
+img {
+  float: left;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.float-right {
+  float: right;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+@media screen {
+  
 }
