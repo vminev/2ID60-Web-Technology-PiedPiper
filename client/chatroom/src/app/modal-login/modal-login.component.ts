@@ -23,6 +23,6 @@ export class ModalLoginComponent {
       .subscribe(
         data => this.userService.setToken(data.token),
         error => console.log(error),
-        () => {this.userChange.emit(username); $('#modalLogin').trigger('click')});
+        () => {this.userChange.emit(username); $('#modalLogin').trigger('click'); window.location.reload();});
   }
 }

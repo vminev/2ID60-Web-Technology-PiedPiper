@@ -7,27 +7,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 })
 
 export class NavbarComponent{
-  ourApp: string;
-  home: string;
-  myProfile: string;
-  login: string;
-  register: string;
-  create: string;
-
   @Input()
   user: string;
 
   @Output()
   userChange: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(){
-    this.ourApp = 'ChatGo';
-    this.home = 'Home';
-    this.myProfile = 'My Profile';
-    this.login = 'Log In';
-    this.register = 'Register';
-    this.create = 'Create room';
-  }
+  constructor(){}
 
   userChanged(event) {
     this.userChange.emit(event);
