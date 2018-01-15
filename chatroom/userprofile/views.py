@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from rest_framework.response import Response
 
 # Create your views here.
 from rest_framework import generics
 from .serializers import *
+from rest_framework.permissions import IsAuthenticated
 
 
 class UserProfileDetailView(generics.RetrieveAPIView):
@@ -14,3 +15,12 @@ class UserProfileDetailView(generics.RetrieveAPIView):
 class UserProfileCreateAPIView(generics.CreateAPIView):
     serializer_class = UserProfileCreateSerializer
     queryset = UserProfile.objects.all()
+
+
+class UserIdentityAPIView(generics.RetrieveAPIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        print(request.user)
+        serializer = UserIdentitySerializer(request.user)
+        return Response(serializer.data)

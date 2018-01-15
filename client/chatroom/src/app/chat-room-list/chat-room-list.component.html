@@ -1,83 +1,21 @@
 <div class="container col-lg-12" id="cont">
   <div class="container-fluid">
     <div class="row">
-
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 clearfix" *ngFor="let chatroom of chatrooms">
         <div class="card text-center">
           <div class="container" style="width: auto">
             <div class="">
               <div class="match">
-                <h3 class="text-center"><b>Hackaton</b></h3>
+                <h3 class="text-center"><b>{{chatroom.title}}</b></h3>
               </div>
               <div class="match clearfix">
-                <h5 class="text-center">Participants: 10/10</h5>
+                <h5 class="text-center">Participants: {{chatroom.participants}}/10</h5>
               </div>
               <div class="match clearfix">
-                <h5 class="text-center">Admin: Gera</h5>
+                <h5 class="text-center">Admin: {{chatroom.admin.first_name}} {{chatroom.admin.family_name}}</h5>
               </div>
               <div class="match text-center">
-                <a class="btn btn-primary center">Join/Enter</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 clearfix">
-        <div class="card">
-          <div class="container" style="width: auto">
-            <div class="">
-              <div class="match">
-                <h3 class="text-center"><b>Hackaton</b></h3>
-              </div>
-              <div class="match clearfix">
-                <h5 class="text-center">Participants: 10/10</h5>
-              </div>
-              <div class="match clearfix">
-                <h5 class="text-center">Admin: Gera</h5>
-              </div>
-              <div class="match text-center">
-                <a class="btn btn-primary center">Join/Enter</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 clearfix">
-        <div class="card">
-          <div class="container" style="width: auto">
-            <div class="">
-                <div class="match">
-                    <h3 class="text-center"><b>Hackaton</b></h3>
-                </div>
-                <div class="match clearfix">
-                  <h5 class="text-center">Participants: 10/10</h5>
-                </div>
-                <div class="match clearfix">
-                <h5 class="text-center">Admin: Gera</h5>
-                </div>
-                <div class="match text-center">
-                  <a class="btn btn-primary center">Join/Enter</a>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 clearfix">
-        <div class="card">
-          <div class="container" style="width: auto">
-            <div class="">
-              <div class="match">
-                <h3 class="text-center"><b>Hackaton</b></h3>
-              </div>
-              <div class="match clearfix">
-                <h5 class="text-center">Participants: 10/10</h5>
-              </div>
-              <div class="match clearfix">
-                <h5 class="text-center">Admin: Gera</h5>
-              </div>
-              <div class="match text-center">
-                <a class="btn btn-primary center">Join/Enter</a>
+                <button class="btn btn-primary center" (click)="joinEnterRoom(chatroom.id)">Join/Enter</button>
               </div>
             </div>
           </div>

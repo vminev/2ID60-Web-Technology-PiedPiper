@@ -146,3 +146,11 @@ class UserProfileCreateSerializer(serializers.ModelSerializer):
         userprofile.save()
 
         return validated_data
+
+
+class UserIdentitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserModel
+        fields = (
+            'username',
+        )

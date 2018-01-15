@@ -6,6 +6,7 @@ import {settings} from '../config';
 import {User} from "../models/user";
 import {CookieService} from 'ngx-cookie-service';
 import {Login} from "../models/login";
+import {HeaderService} from "./header.service";
 
 @Injectable()
 export class UserService {
@@ -13,7 +14,8 @@ export class UserService {
   private headers = new HttpHeaders();
 
   constructor(private http: HttpClient,
-              private cookieService: CookieService) {
+              private cookieService: CookieService,
+              private headerService: HeaderService) {
   }
 
   login(user: User): Observable<Login> {
@@ -39,5 +41,10 @@ export class UserService {
 
   logout(): void {
     this.cookieService.delete('auth');
+  }
+
+  getIdentity(): Observable<User> {
+    let headers = this.headerService.getHeaders();
+    return this.http.get<User>(this.profileUrl + '/identity', {headers: headers});
   }
 }

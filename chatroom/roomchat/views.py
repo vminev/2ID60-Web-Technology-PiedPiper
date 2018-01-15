@@ -6,6 +6,7 @@ from rest_framework.generics import CreateAPIView
 from roomchat.models import RoomChat, Message
 from rest_framework import generics
 from .serializers import RoomChatDetailSerializer, RoomChatSummarySerializer, MessageListSerializer, RoomChatCreateSerializer, MessageCreateSerializer
+from rest_framework.permissions import IsAuthenticated
 
 
 class ChatRoomSummaryView(generics.ListAPIView):  # shows all the chat rooms on the main page
@@ -24,6 +25,11 @@ class ChatRoomDetailView(generics.RetrieveAPIView):
 class ChatRoomCreateView(CreateAPIView):
     queryset = RoomChat.objects.all()
     serializer_class = RoomChatCreateSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def perform_create(self, serializer):
+        print(self.request.user)
+        serializer.save(admin=self.request.user.profile)
 
 
 class MessageView(generics.ListAPIView):
@@ -36,6 +42,10 @@ class MessageView(generics.ListAPIView):
 class MessageCreateView(CreateAPIView):
     queryset = Message.objects.all()
     serializer_class = MessageCreateSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def perform_create(self, serializer):
+        serializer.save(creator=self.request.user.profile)
 
 
 

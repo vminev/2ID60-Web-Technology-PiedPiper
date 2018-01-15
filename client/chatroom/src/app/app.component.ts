@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {UserService} from "./services/user.service";
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,21 @@ import { Component } from '@angular/core';
 export class AppComponent{
   title = 'app';
   user: string = null;
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    this.userService.isLoggedIn()
+      .subscribe(
+        () => {
+          this.userService.getIdentity()
+            .subscribe(
+              identity => this.user = identity.username,
+              error => {console.log(error); this.user = null}
+            )
+        }
+      )
+  }
 
   userChanged(event) {
     this.user = event;

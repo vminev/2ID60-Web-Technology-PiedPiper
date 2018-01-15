@@ -23,7 +23,8 @@ class RoomChatDetailSerializer(serializers.ModelSerializer):
         model = RoomChat
         fields = (
             'title',
-            'subscribed_participants'
+            'subscribed_participants',
+            'id'
         )
 
 
@@ -36,7 +37,8 @@ class RoomChatSummarySerializer(serializers.ModelSerializer):
         fields = (
             'title',
             'admin',
-            'participants'
+            'participants',
+            'id'
         )
 
     def get_participants(self, obj):
@@ -62,6 +64,3 @@ class MessageCreateSerializer(serializers.ModelSerializer):
             'content',
             'roomchat'
         )
-
-
-

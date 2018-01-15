@@ -27,6 +27,7 @@ import {CookieService} from 'ngx-cookie-service';
 import {LeaveButtonComponent} from './leave-button/leave-button.component';
 import { NavbarUserLoggedInComponent } from './navbar-user-logged-in/navbar-user-logged-in.component';
 import { NavbarUserAnnonymousComponent } from './navbar-user-annonymous/navbar-user-annonymous.component';
+import { HeaderService } from './services/header.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { NavbarUserAnnonymousComponent } from './navbar-user-annonymous/navbar-u
     MembershipService,
     MessageService,
     UserService,
-    CookieService
+    CookieService,
+    HeaderService
   ],
   bootstrap: [AppComponent]
 })

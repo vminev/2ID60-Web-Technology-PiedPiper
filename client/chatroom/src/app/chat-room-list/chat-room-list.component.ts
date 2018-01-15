@@ -21,4 +21,8 @@ export class ChatRoomListComponent {
         this.chatrooms = chatrooms
       })
   };
+
+  joinEnterRoom(room_id: string) {
+    console.log(room_id);
+  }
 }

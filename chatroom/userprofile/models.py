@@ -20,4 +20,4 @@ class UserProfile(models.Model):
     #users can have their online status shown
 
     def __str__(self):
-        return self.first_name + self.family_name
+        return self.user.username

@@ -9,7 +9,7 @@ from django.core.exceptions import ValidationError
 # Create your models here.
 class RoomChat(models.Model):
     title = models.CharField(max_length=100)
-    admin = models.ForeignKey(UserProfile, on_delete=models.DO_NOTHING, related_name='owned_rooms')
+    admin = models.ForeignKey(UserProfile, on_delete=models.DO_NOTHING, related_name='owned_rooms', blank=True)
 
     @property
     def connected_participants(self):

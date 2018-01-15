@@ -13,8 +13,8 @@
         <div class="modal-body">
           <form id="createChatRoom-form">
             <h4>Name</h4>
-            <input id="chatName" name="chaName" type="text"/>
-            <input class='cool-button button btn-primary' type="submit" value='Create' (click)="createChatRoom()"/>
+            <input #title id="chatName" name="chaName" type="text"/>
+            <input class='cool-button button btn-primary' type="submit" value='Create' (click)="createChatRoom(title.value)"/>
           </form>
         </div>
         <div class="modal-footer">

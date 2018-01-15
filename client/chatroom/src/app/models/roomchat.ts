@@ -5,7 +5,11 @@ import {UserProfile} from "./userprofile";
 export class RoomChat {
   title: string;
   admin: UserProfile;
-  connected_participants: User[];
-  subscribed_participants: User[];
+  participants: number;
   messages: Message[];
+  id: number;
+
+  constructor(title: string) {
+    this.title = title;
+  }
 }
