@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ChatroomService} from "../services/chatroom.service";
+import {RoomChat} from "../models/roomchat";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-modal-create-chatroom',
@@ -7,13 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalCreateChatroomComponent implements OnInit {
 
-  constructor() { }
+  constructor(private chatroomService: ChatroomService, private location: Location) { }
 
   ngOnInit() {
   }
 
-  createChatRoom() {
-
+  createChatRoom(title: string) {
+    this.chatroomService.create(new RoomChat(title))
+      .subscribe(
+        () => window.location.reload(),
+        error => console.log(error)
+      );
   }
 
 }
