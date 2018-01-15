@@ -29,13 +29,18 @@ class RoomChatDetailSerializer(serializers.ModelSerializer):
 
 class RoomChatSummarySerializer(serializers.ModelSerializer):
     admin = AdminSerializer(read_only=True)
+    participants = serializers.SerializerMethodField()
 
     class Meta:
         model = RoomChat
         fields = (
             'title',
             'admin',
+            'participants'
         )
+
+    def get_participants(self, obj):
+        return obj.subscribed_participants.count()
 
 
 class RoomChatCreateSerializer(serializers.ModelSerializer):
