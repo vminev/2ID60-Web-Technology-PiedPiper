@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
   styleUrls: ['./navbar.component.css']
 })
 
-export class NavbarComponent {
+export class NavbarComponent{
   ourApp: string;
   home: string;
   myProfile: string;
@@ -15,10 +15,10 @@ export class NavbarComponent {
   create: string;
 
   @Input()
-  user: string = null;
+  user: string;
 
   @Output()
-  change: EventEmitter<string> = new EventEmitter<string>();
+  userChange: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(){
     this.ourApp = 'ChatGo';
@@ -29,7 +29,7 @@ export class NavbarComponent {
     this.create = 'Create room';
   }
 
-  userChange(event) {
-    this.change.emit(event);
+  userChanged(event) {
+    this.userChange.emit(event);
   }
 }

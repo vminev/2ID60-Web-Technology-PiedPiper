@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {settings} from '../config';
 import {User} from "../models/user";
 import {CookieService} from 'ngx-cookie-service';
+import {Login} from "../models/login";
 
 @Injectable()
 export class UserService {
@@ -15,8 +16,8 @@ export class UserService {
               private cookieService: CookieService) {
   }
 
-  login(user: User): Observable<string> {
-    return this.http.post<string>(this.profileUrl + '/login', user);
+  login(user: User): Observable<Login> {
+    return this.http.post<Login>(this.profileUrl + '/login', user);
   }
 
   setToken(token: string): void {

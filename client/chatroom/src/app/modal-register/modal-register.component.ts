@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core'
+import {Component, Input, Output, EventEmitter} from '@angular/core'
 
 @Component({
   selector: 'app-modal-register',
@@ -8,12 +8,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 
 export class ModalRegisterComponent {
   @Input()
-  user: string = '';
+  user: string;
 
   @Output()
-  change: EventEmitter<string> = new EventEmitter<string>();
+  userChange: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(){
+  constructor() {
 
   }
 

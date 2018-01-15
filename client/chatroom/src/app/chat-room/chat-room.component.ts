@@ -23,9 +23,6 @@ export class ChatRoomComponent {
   }
 
   ngOnInit() {
-    this.userService.login(new User("piedpiper", "piedpiper"))
-      .subscribe(token => this.token = token, error => console.log(error), () => console.log(this.token));
-
     this.messageService.getMessages(1)
       .subscribe(messages => this.messages = messages, error => console.log(error), () => console.log(this.messages));
   }
