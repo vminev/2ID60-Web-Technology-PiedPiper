@@ -1,39 +1,20 @@
-.chatRoomParticipants {
-  height: 100%;
-  width: 100%;
-  position: center;
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
 
-.listWithChatRooms{
-  table-layout: fixed;
-  width: 100%;
-  display: table;
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.chatRoomTitle{
-  padding-top: 11px;
-  float: left;
-  padding-left: 3%;
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
 }
 
-.chatRoomCreator {
-  padding-top: 11px;
-  text-align: center;
-}
-
-.chatRoomButton{
-  float: right;
-  padding-top: 16px;
-  padding-right: 3%;
-}
-
-.singleChatRoom {
-  display: table;
-  border: #303030 solid 1px;
-  height: 60px;
-  width: 100%;
-  border-radius: 5px;
-  text-align: left;
-  background-color: cadetblue;
+#cont{
+  padding-top: 10px;
 }
 
