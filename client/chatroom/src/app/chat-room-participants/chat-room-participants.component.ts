@@ -10,22 +10,20 @@ export class ChatRoomParticipantsComponent {
   profileImage: string;
   profileName: string;
   inChat: boolean;
+  status: string;
 
   constructor(){
 
   }
 
-  ngOnInit(profileImage, profileName, inChat){
+  ngOnInit(profileImage, profileName, inChat, status){
     this.profileImage = profileImage;
     this.profileName = profileName;
     this.inChat = inChat;
-  }
-
-  ngOnChanges() {
-
+    this.status = 'offline';
   }
 
   leaveChat(){
-
+    this.inChat = false;
   }
 }

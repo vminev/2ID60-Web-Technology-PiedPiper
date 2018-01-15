@@ -1,22 +1,26 @@
-<div class="chatRoomParticipants">
-
-  <ul class="listWithParticipants">
-    <li class="personInChatRoom">
-      <div class="card">
-        <a data-toggle="modal" href="#modalProfileOthers">
-          <img src="https://static.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg" alt="John" class="img-circle">
-        </a>
-        <h5>John Doe</h5>
-      </div>
-    </li>
-    <!--<li class="personInChatRoom">
-     <div class="card">
-        <a data-toggle="modal" href="#modalProfileOthers">
-          <img src="{{profileImage}}" alt="{{profileName}}" class="img-circle">
-        </a>
-        <h5>{{profileName}}</h5>
-      </div>
-    </li>-->
-  </ul>
-
+<div class="container clearfix">
+  <div class="people-list" id="people-list">
+    <ul class="list">
+      <li class="clearfix">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg" alt="avatar"/>
+        <div class="about">
+          <div class="name">Vincent Porter</div>
+          <div class="status">
+            <span class="statusText"><p>online</p></span>
+            <span><div class="circle green"></div></span>
+          </div>
+        </div>
+      </li>
+      <li class="clearfix">
+        <img src="{{profileImage}}" alt="avatar"/>
+        <div class="about">
+          <div class="name">{{profileName}}</div>
+          <div class="status">
+            <span class="statusText"><p>{{status}}</p></span>
+            <span><div class="circle red" [class.green]="inChat"></div></span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
