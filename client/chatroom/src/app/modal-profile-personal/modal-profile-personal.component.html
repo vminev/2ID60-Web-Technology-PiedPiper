@@ -26,12 +26,14 @@
               <div class="form-group">
                 <label for="selectGender">First name:</label>
                 <input type="text" class="form-control" [(ngModel)]="profile.first_name" rows="1" id="firstname" />
+                <label for="selectGender">Family name:</label>
+                <input type="text" class="form-control" rows="1" id="familyname" [(ngModel)]="profile.family_name" />
               </div>
 
             </div>
           </div>
           <div class = "container col-md-12">
-            <div class="col-lg-6">
+            <div class="col-lg-6 ">
               <div class="form-group">
                 <label for="description">Description:</label>
                 <textarea type="text" class="form-control" rows="5" id="description" [(ngModel)]="profile.description"></textarea>
@@ -39,8 +41,6 @@
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <label for="selectGender">Family name:</label>
-                <input type="text" class="form-control" rows="1" id="familyname" [(ngModel)]="profile.family_name" />
               <div class="form-group">
                 <label for="selectGender">Gender:</label>
                 <select class="form-control" id="selectGender" [(ngModel)]="profile.gender">

@@ -37,7 +37,7 @@
 .panel-body
 {
   overflow-y: scroll;
-  min-height:100vh;
+  height: calc(100% - 103px);
   flex: 1;
 }
 
@@ -61,7 +61,8 @@
 
 .chat-box{
   margin-top: 10px;
-  min-height: 100vh;
+  margin-bottom: 20px;
+  height: 100%;
 }
 
 .button {

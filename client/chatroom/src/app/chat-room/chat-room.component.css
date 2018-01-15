@@ -12,6 +12,11 @@
   border-bottom: 1px dotted #B3A9A9;
 }
 
+.chatroom{
+  height: 80vh;
+}
+
+
 .chat li.left .chat-body
 {
   margin-left: 60px;
