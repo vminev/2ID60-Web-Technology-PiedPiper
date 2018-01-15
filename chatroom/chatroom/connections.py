@@ -6,6 +6,8 @@ import datetime
 
 from roomchat.models import RoomChat
 from django.contrib.auth.models import User
+from connection.models import Connection
+from roomchat.models import Message
 
 
 @channel_session
@@ -22,11 +24,12 @@ def ws_add(message, room_id):
         if members.count() > 0:
             message.channel_session['username'] = message.user.username
             message.channel_session['user_id'] = message.user.id
-            # TODO: Add user to active users
-            # room.active_users.add(message.user)
+
             Group("room-" + room_id).send({'text': json.dumps({'type': 'join', 'user': message.user.username})})
             message.reply_channel.send({"accept": True})
             Group("room-" + room_id).add(message.reply_channel)
+            connection = Connection(user=message.user.profile, chatroom=room)
+            connection.save()
         else:
             message.reply_channel.send({"accept": False, "text": "You are not a member of the room."})
     else:
@@ -65,4 +68,13 @@ def ws_message(message, room_id):
 @channel_session
 def ws_disconnect(message, room_id):
     Group("room-" + room_id).discard(message.reply_channel)
+
+    user_connection = None
+
+    if 'user_id' in message.channel_session:
+        user_connection = Connection.objects.filter(chatroom_id=room_id, user__user_id=message.channel_session['user_id']).first()
+
+    if user_connection is not None:
+        user_connection.delete()
+
     Group("room-" + room_id).send({'text': json.dumps({'type': 'leave'})})
