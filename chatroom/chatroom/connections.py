@@ -2,6 +2,7 @@ from channels import Group
 from .auth_token import rest_token_user
 from channels.sessions import channel_session
 import json
+import datetime
 
 from roomchat.models import RoomChat
 from django.contrib.auth.models import User
@@ -15,10 +16,10 @@ def ws_add(message, room_id):
     except RoomChat.DoesNotExist:
         room = None
 
-    if room is not None:
-        members = room.members.all()
+    if room is not None and message.user is not None:
+        members = room.subscribed_participants.filter(user__user_id=message.user.id)
 
-        if message.user is not None and message.user in members:
+        if members.count() > 0:
             message.channel_session['username'] = message.user.username
             message.channel_session['user_id'] = message.user.id
             # TODO: Add user to active users
@@ -30,7 +31,6 @@ def ws_add(message, room_id):
             message.reply_channel.send({"accept": False, "text": "You are not a member of the room."})
     else:
         message.reply_channel.send({"accept": False, "text": "Room does not exist."})
-
 
 
 @channel_session
@@ -47,13 +47,16 @@ def ws_message(message, room_id):
     except RoomChat.DoesNotExist:
         room = None
 
-    if room is not None and user is not None and user in room.active_users.all():
+    if room is not None and user is not None:
+        profile = user.profile
+
         Group("room-" + room_id).send({
-            "text": json.dumps({'type': 'message', 'user': message.channel_session['username'], 'text': message.content['text']}),
+            "text": json.dumps(
+                {'type': 'message', 'first_name':  profile.first_name, 'family_name':  profile.family_name, 'content': message.content['text'], 'date_posted': str(datetime.datetime.now())}),
         })
 
 
 @channel_session
 def ws_disconnect(message, room_id):
     Group("room-" + room_id).discard(message.reply_channel)
-    Group("room-" + room_id).send({'text': json.dumps({'type': 'leave', 'user': message.channel_session['username']})})
+    Group("room-" + room_id).send({'text': json.dumps({'type': 'leave'})})
