@@ -1,13 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {HttpErrorResponse} from "@angular/common/http";
 import {MessageService} from "../services/message.service";
 import {Message} from "../models/message";
 import {UserService} from "../services/user.service";
 import {settings} from "../config";
 import {UserProfile} from "../models/userprofile";
-// import {DataService} from "../data.service";
-// import {CommonConstants} from "../util/common-constants";
 
 @Component({
   selector: 'app-chat-room-chat-box',
@@ -20,6 +17,9 @@ export class ChatRoomChatBoxComponent implements OnInit {
   socket: WebSocket;
   connected: Boolean;
   content: string = '';
+
+  @Output()
+  usersChange: EventEmitter<any> = new EventEmitter();
 
   constructor(private messageService: MessageService, private userService: UserService, private route: ActivatedRoute) {
   }
@@ -36,6 +36,7 @@ export class ChatRoomChatBoxComponent implements OnInit {
           this.userService.getToken()
             .subscribe(token => {
               let messages = this.messages;
+              let usersChange = this.usersChange;
               this.socket = new WebSocket(`${settings.wsUrl}/chatroom/${+params['id']}?token=${token}`);
 
               this.socket.onmessage = function (e) {
@@ -46,8 +47,8 @@ export class ChatRoomChatBoxComponent implements OnInit {
                     messages.push(message);
                     break;
                   case 'join':
-                    break;
                   case 'leave':
+                    usersChange.emit(true);
                     break;
                 }
               };

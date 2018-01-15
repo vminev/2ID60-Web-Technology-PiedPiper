@@ -13,7 +13,8 @@
                         </span>
         <div class="chat-body clearfix">
           <div class="header">
-            <strong class="primary-font">{{message.creator.first_name}} {{message.creator.family_name}}</strong>
+            <strong class="primary-font" *ngIf="!!message.creator.first_name || !!message.creator.family_name">{{message.creator.first_name}} {{message.creator.family_name}}</strong>
+            <strong class="primary-font" *ngIf="!message.creator.first_name && !message.creator.family_name">Unknown</strong>
             <small class="pull-right text-muted">
               <span class="glyphicon glyphicon-time"></span>{{message.date_posted | date:'medium'}}
             </small>

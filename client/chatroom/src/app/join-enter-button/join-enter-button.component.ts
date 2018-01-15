@@ -1,4 +1,7 @@
-import { Component } from '@angular/core'
+import {Component, Input} from '@angular/core'
+import {ActivatedRoute} from "@angular/router";
+import {MembershipService} from "../services/membership.service";
+import {Membership} from "../models/membership";
 
 @Component(
   {
@@ -9,19 +12,27 @@ import { Component } from '@angular/core'
 )
 
 export class JoinEnterButtonComponent {
-  title: string;
-  text: string;
+  @Input()
+  canEnter: boolean;
 
-  constructor(){
-    this.title = 'Do I work';
-    this.text = 'Click Me'
+  @Input()
+  chatroom_id: number;
+
+  constructor(private route: ActivatedRoute, private membershipService: MembershipService){}
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      let room_id = +params['id'];
+    });
   }
 
-  joinOrEnter(text){
-    if(text === "Join"){
-      //call function to join chat in array for participants and then enter by alco calling the route for chat-room
-    } else {
-      //call function to enter the chat room and route to show it
-    }
+  join(chatroom_id){
+    let membership = new Membership();
+    membership.chatroom = chatroom_id;
+    this.membershipService.createMembership(membership)
+      .subscribe(
+        () => window.location.reload(),
+        error => console.log(error)
+      );
   }
 }

@@ -1,2 +1,3 @@
-<button #joinEnterButton class="button btn-danger pull-right" (click)="joinOrEnter(joinEnterButton.text)">{{text}}</button>
+<a *ngIf="canEnter" routerLink="/chat/{{chatroom_id}}" class="button btn-success pull-right">Enter</a>
+<button *ngIf="!canEnter" class="button btn-danger pull-right" (click)="join(chatroom_id)">Join</button>
 

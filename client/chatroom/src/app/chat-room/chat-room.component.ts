@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core'
-import {MessageService} from '../services/message.service';
-import {Message} from "../models/message";
-import {UserService} from "../services/user.service";
-import {User} from "../models/user";
+import {ActivatedRoute} from "@angular/router";
+import {ChatroomService} from "../services/chatroom.service";
+import {RoomChat} from "../models/roomchat";
 
 @Component({
   selector: 'app-chat-room',
@@ -11,14 +10,29 @@ import {User} from "../models/user";
 })
 
 export class ChatRoomComponent {
-  profileImage: string;
-  profileName: string;
-  inChat: boolean;
-  messages: Message[];
-  token: string;
+  roomchat: RoomChat;
 
   constructor(
-    private messageService: MessageService,
-    private userService: UserService) {
+    private chatroomService: ChatroomService, private route: ActivatedRoute) {
+  }
+
+  ngOnInit(){
+    this.loadRoomChat();
+  }
+
+  loadRoomChat() {
+    this.route.params.subscribe(params => {
+      let room_id = +params['id'];
+
+      this.chatroomService.getDetails(room_id)
+        .subscribe(
+          roomchat => this.roomchat = roomchat,
+          error => console.log(error)
+        )
+    });
+  }
+
+  userChanged(event) {
+    this.loadRoomChat();
   }
 }
