@@ -15,7 +15,7 @@
                 <h5 class="text-center">Admin: {{chatroom.admin.first_name}} {{chatroom.admin.family_name}}</h5>
               </div>
               <div class="match text-center">
-                <button class="btn btn-primary center" (click)="joinEnterRoom(chatroom.id)">Join/Enter</button>
+                <app-join-enter-button [canEnter]="chatroom.can_enter" [chatroom_id]="chatroom.id"></app-join-enter-button>
               </div>
             </div>
           </div>

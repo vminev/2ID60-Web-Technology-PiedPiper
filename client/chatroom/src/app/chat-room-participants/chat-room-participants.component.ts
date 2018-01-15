@@ -1,4 +1,7 @@
-import { Component } from '@angular/core'
+import {Component, Input} from '@angular/core'
+import {ChatroomService} from "../services/chatroom.service";
+import {RoomChat} from "../models/roomchat";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-chat-room-participants',
@@ -7,25 +10,14 @@ import { Component } from '@angular/core'
 })
 
 export class ChatRoomParticipantsComponent {
-  profileImage: string;
-  profileName: string;
-  inChat: boolean;
-  status: string;
+  @Input()
+  roomchat: RoomChat;
 
-  constructor(){
-
-  }
-
-  ngOnInit(profileImage, profileName, inChat, status){
-    this.profileImage = profileImage;
-    this.profileName = profileName;
-    this.inChat = inChat;
-    this.status = 'offline';
-  }
+  constructor(private chatroomService: ChatroomService, private route: ActivatedRoute){}
 
   leaveChat(){
-    this.inChat = false;
+
   }
 
-  
+
 }

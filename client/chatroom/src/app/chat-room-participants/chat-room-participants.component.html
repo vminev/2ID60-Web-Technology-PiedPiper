@@ -5,24 +5,19 @@
 
 <div class="container clearfix">
   <div class="people-list" id="people-list">
-    <ul class="list">
-      <li class="clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg" alt="avatar"/>
+    <ul class="list" *ngIf="!!roomchat">
+      <li class="clearfix" *ngFor="let member of roomchat.subscribed_participants">
+        <img src="{{member.user.profile_photo ? member.user.profile_photo : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg'}}" style="width: 60px;" alt="avatar"/>
         <div class="about">
-          <div class="name">Vincent Porter</div>
-          <div class="status">
+          <div class="name" *ngIf="!!member.user.first_name || !!member.user.family_name">{{member.user.first_name}} {{member.user.family_name}}</div>
+          <div class="name" *ngIf="!member.user.first_name && !member.user.family_name">Unknown</div>
+          <div class="status" *ngIf="member.is_online">
             <span class="statusText"><p>online</p></span>
             <span><div class="circle green"></div></span>
           </div>
-        </div>
-      </li>
-      <li class="clearfix">
-        <img src="{{profileImage}}" alt="avatar"/>
-        <div class="about">
-          <div class="name">{{profileName}}</div>
-          <div class="status">
-            <span class="statusText"><p>{{status}}</p></span>
-            <span><div class="circle red" [class.green]="inChat"></div></span>
+          <div class="status" *ngIf="!member.is_online">
+            <span class="statusText"><p>offline</p></span>
+            <span><div class="circle red"></div></span>
           </div>
         </div>
       </li>
