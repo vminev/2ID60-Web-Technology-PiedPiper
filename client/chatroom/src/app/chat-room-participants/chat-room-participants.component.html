@@ -1,10 +1,10 @@
 <button type="button"
         data-toggle="collapse"
         data-target="#people-list"
-        class="visible-xs visible-sm collapsed">Collapsible</button>
+        class="visible-xs visible-sm collapsed">Participants</button>
 
 <div class="container clearfix">
-  <div class="people-list" id="people-list">
+  <div class="people-list" id="people-list" style="width: auto">
     <ul class="list" *ngIf="!!roomchat">
       <li class="clearfix" *ngFor="let member of roomchat.subscribed_participants">
         <img src="{{member.user.profile_photo ? member.user.profile_photo : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg'}}" style="width: 60px;" alt="avatar"/>
