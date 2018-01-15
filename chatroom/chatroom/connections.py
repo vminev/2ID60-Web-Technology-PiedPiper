@@ -20,8 +20,10 @@ def ws_add(message, room_id):
 
     if room is not None and message.user is not None:
         members = room.subscribed_participants.filter(user__user_id=message.user.id)
+        print(1)
 
         if members.count() > 0:
+            print(2)
             message.channel_session['username'] = message.user.username
             message.channel_session['user_id'] = message.user.id
 
@@ -31,8 +33,10 @@ def ws_add(message, room_id):
             connection = Connection(user=message.user.profile, chatroom=room)
             connection.save()
         else:
+            print(3)
             message.reply_channel.send({"accept": False, "text": "You are not a member of the room."})
     else:
+        print(4)
         message.reply_channel.send({"accept": False, "text": "Room does not exist."})
 
 
@@ -52,6 +56,9 @@ def ws_message(message, room_id):
 
     if room is not None and user is not None:
         profile = user.profile
+
+        message = Message(creator=profile, date_posted=datetime.datetime.now(), content=message.content['text'], room=room)
+        message.save()
 
         Group("room-" + room_id).send({
             "text": json.dumps(
