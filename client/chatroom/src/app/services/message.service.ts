@@ -1,23 +1,18 @@
 import {Injectable} from '@angular/core';
-import { of } from 'rxjs/observable/of';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {Observable} from "rxjs";
 import {Message} from "../models/message";
 import {settings} from '../config';
-import {UserService} from "./user.service";
+import {HeaderService} from "./header.service";
 
 @Injectable()
 export class MessageService {
   private messagesHttpUrl = `${settings.apiUrl}/chatroom/`;
-  private messagesWsUrl = `${settings.wsUrl}/chatroom/`;
 
-  constructor(private http: HttpClient, private userService: UserService) {}
+  constructor(private http: HttpClient, private headerService: HeaderService) {}
 
   getMessages(room_id): Observable<Message[]> {
-    return this.http.get<Message[]>(`${this.messagesHttpUrl}${room_id}/messages`);
-  }
-
-  sendMessage(socket: WebSocket, message: Message): void {
-    socket.send(message);
+    let headers = this.headerService.getHeaders();
+    return this.http.get<Message[]>(`${this.messagesHttpUrl}${room_id}/messages`, {headers: headers});
   }
 }

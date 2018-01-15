@@ -8,6 +8,7 @@ export class RoomChat {
   participants: number;
   messages: Message[];
   id: number;
+  can_enter: boolean;
 
   constructor(title: string) {
     this.title = title;

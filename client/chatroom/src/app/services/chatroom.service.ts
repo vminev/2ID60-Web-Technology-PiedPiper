@@ -9,15 +9,16 @@ import {HeaderService} from "./header.service";
 export class ChatroomService {
   private chatroomUrl = `${settings.apiUrl}/chatroom`;
 
-  constructor(private http: HttpClient, private headerService: HeaderService) {
-  }
+  constructor(private http: HttpClient, private headerService: HeaderService) {}
 
   getAll(): Observable<RoomChat[]> {
-    return this.http.get<RoomChat[]>(`${this.chatroomUrl}/all`);
+    let headers = this.headerService.getHeaders();
+    return this.http.get<RoomChat[]>(`${this.chatroomUrl}/all`, {headers: headers});
   }
 
   getDetails(room_id): Observable<RoomChat> {
-    return this.http.get<RoomChat>(`${this.chatroomUrl}/${room_id}`)
+    let headers = this.headerService.getHeaders();
+    return this.http.get<RoomChat>(`${this.chatroomUrl}/${room_id}`, {headers: headers})
   }
 
   create(chatroom: RoomChat): Observable<Object> {

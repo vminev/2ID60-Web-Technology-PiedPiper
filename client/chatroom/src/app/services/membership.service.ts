@@ -3,15 +3,21 @@ import {Observable} from "rxjs";
 import {Membership} from "../models/membership";
 import {settings} from "../config";
 import {HttpClient} from "@angular/common/http";
+import {HeaderService} from "./header.service";
 
 @Injectable()
 export class MembershipService {
   private membershipUrl = `${settings.apiUrl}/membership`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private headerService: HeaderService) { }
 
   getMemberships(): Observable<Membership[]> {
-    return this.http.get<Membership[]>(this.membershipUrl);
+    let headers = this.headerService.getHeaders();
+    return this.http.get<Membership[]>(this.membershipUrl, {headers: headers});
   }
 
+  createMembership(membership: Membership): Observable<Object> {
+    let headers = this.headerService.getHeaders();
+    return this.http.post<Membership[]>(this.membershipUrl + '/create', membership, {headers: headers});
+  }
 }

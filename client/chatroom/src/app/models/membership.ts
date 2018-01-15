@@ -4,4 +4,5 @@ import {RoomChat} from "./roomchat";
 export class Membership {
   user: UserProfile;
   chatroom: RoomChat;
+  is_online: boolean;
 }

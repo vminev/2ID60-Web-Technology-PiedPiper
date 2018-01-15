@@ -7,28 +7,30 @@ import {User} from "../models/user";
 import {CookieService} from 'ngx-cookie-service';
 import {Login} from "../models/login";
 import {HeaderService} from "./header.service";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class UserService {
   private profileUrl = `${settings.apiUrl}/profile`;
-  private headers = new HttpHeaders();
 
   constructor(private http: HttpClient,
               private cookieService: CookieService,
-              private headerService: HeaderService) {
+              private headerService: HeaderService,
+              private router: Router) {
   }
 
   login(user: User): Observable<Login> {
-    return this.http.post<Login>(this.profileUrl + '/login', user);
+    let headers = this.headerService.getHeaders();
+    return this.http.post<Login>(this.profileUrl + '/login', user, {headers: headers});
   }
 
   register(user: User): Observable<Object> {
-    return this.http.post<Object>(this.profileUrl + '/register', user);
+    let headers = this.headerService.getHeaders();
+    return this.http.post<Object>(this.profileUrl + '/register', user, {headers: headers});
   }
 
   setToken(token: string): void {
     this.cookieService.set('auth', token);
-    this.headers.append('Authorization', 'JWT ' + token);
   }
 
   getToken(): Observable<string> {
@@ -41,6 +43,7 @@ export class UserService {
 
   logout(): void {
     this.cookieService.delete('auth');
+    this.router.navigateByUrl('/');
   }
 
   getIdentity(): Observable<User> {
