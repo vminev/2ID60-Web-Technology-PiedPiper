@@ -13,7 +13,7 @@ Django==1.11.7
 django-cors-headers==2.1.0
 django-filter==1.1.0
 -e git+https://github.com/jschneier/django-storages.git@adefe324be22843148b03a2068d2922eaae1a48b#egg=django_storages
-djangorestframework==3.7.3
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 dropbox==8.5.0
 gunicorn==19.7.1
